@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12716B1B1BB0A96100CC21E8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12716B191BB0A96100CC21E8 /* Model.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		CA4C28AB1BB08630001DE2EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28AA1BB08630001DE2EB /* main.m */; };
 		CA4C28AE1BB08630001DE2EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28AD1BB08630001DE2EB /* AppDelegate.m */; };
 		CA4C28B11BB08630001DE2EB /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28B01BB08630001DE2EB /* CityViewController.m */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12716B1A1BB0A96100CC21E8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		CA4C28A61BB08630001DE2EB /* Project-Vienna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-Vienna.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA4C28AA1BB08630001DE2EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CA4C28AC1BB08630001DE2EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 				CA4C28B21BB08630001DE2EB /* SecondViewController.h */,
 				CA4C28B31BB08630001DE2EB /* SecondViewController.m */,
 				CA4C28B51BB08630001DE2EB /* Main.storyboard */,
+				12716B191BB0A96100CC21E8 /* Model.xcdatamodeld */,
 				CA4C28B81BB08630001DE2EB /* Assets.xcassets */,
 				CA4C28BA1BB08630001DE2EB /* LaunchScreen.storyboard */,
 				CA4C28BD1BB08630001DE2EB /* Info.plist */,
@@ -156,6 +159,7 @@
 			files = (
 				CA4C28B41BB08630001DE2EB /* SecondViewController.m in Sources */,
 				CA4C28AE1BB08630001DE2EB /* AppDelegate.m in Sources */,
+				12716B1B1BB0A96100CC21E8 /* Model.xcdatamodeld in Sources */,
 				CA4C28B11BB08630001DE2EB /* CityViewController.m in Sources */,
 				CA4C28AB1BB08630001DE2EB /* main.m in Sources */,
 			);
@@ -304,8 +308,22 @@
 				CA4C28C21BB08630001DE2EB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		12716B191BB0A96100CC21E8 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				12716B1A1BB0A96100CC21E8 /* Model.xcdatamodel */,
+			);
+			currentVersion = 12716B1A1BB0A96100CC21E8 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = CA4C289E1BB08630001DE2EB /* Project object */;
 }
