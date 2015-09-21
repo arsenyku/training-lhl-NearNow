@@ -23,6 +23,7 @@
 		CA4C28D91BB0C6F0001DE2EB /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28D11BB0C6F0001DE2EB /* City.m */; settings = {ASSET_TAGS = (); }; };
 		CA4C28DA1BB0C6F0001DE2EB /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28D31BB0C6F0001DE2EB /* Location+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		CA4C28DB1BB0C6F0001DE2EB /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28D51BB0C6F0001DE2EB /* Location.m */; settings = {ASSET_TAGS = (); }; };
+		CA4C28DF1BB0C90B001DE2EB /* AttractionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28DE1BB0C90B001DE2EB /* AttractionsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +55,8 @@
 		CA4C28D31BB0C6F0001DE2EB /* Location+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Location+CoreDataProperties.m"; path = "Project-Vienna/Location+CoreDataProperties.m"; sourceTree = "<group>"; };
 		CA4C28D41BB0C6F0001DE2EB /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = "Project-Vienna/Location.h"; sourceTree = "<group>"; };
 		CA4C28D51BB0C6F0001DE2EB /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = "Project-Vienna/Location.m"; sourceTree = "<group>"; };
+		CA4C28DD1BB0C90B001DE2EB /* AttractionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionsTableViewController.h; sourceTree = "<group>"; };
+		CA4C28DE1BB0C90B001DE2EB /* AttractionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttractionsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +93,8 @@
 				CA4C28AD1BB08630001DE2EB /* AppDelegate.m */,
 				12283E171BB0B53600259558 /* AttractionsListCell.h */,
 				12283E181BB0B53600259558 /* AttractionsListCell.m */,
+				CA4C28DD1BB0C90B001DE2EB /* AttractionsTableViewController.h */,
+				CA4C28DE1BB0C90B001DE2EB /* AttractionsTableViewController.m */,
 				CA4C28AF1BB08630001DE2EB /* CityViewController.h */,
 				CA4C28B01BB08630001DE2EB /* CityViewController.m */,
 				CA4C28B21BB08630001DE2EB /* SecondViewController.h */,
@@ -217,6 +222,7 @@
 				CA4C28D71BB0C6F0001DE2EB /* User.m in Sources */,
 				CA4C28D61BB0C6F0001DE2EB /* User+CoreDataProperties.m in Sources */,
 				CA4C28B41BB08630001DE2EB /* SecondViewController.m in Sources */,
+				CA4C28DF1BB0C90B001DE2EB /* AttractionsTableViewController.m in Sources */,
 				CA4C28AE1BB08630001DE2EB /* AppDelegate.m in Sources */,
 				CA4C28DA1BB0C6F0001DE2EB /* Location+CoreDataProperties.m in Sources */,
 				12716B1B1BB0A96100CC21E8 /* Model.xcdatamodeld in Sources */,

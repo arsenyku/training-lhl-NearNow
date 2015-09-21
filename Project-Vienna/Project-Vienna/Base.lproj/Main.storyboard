@@ -108,7 +108,7 @@
         <!--Attractions-->
         <scene sceneID="Tsk-QB-s7o">
             <objects>
-                <tableViewController id="dab-5i-ab2" sceneMemberID="viewController">
+                <tableViewController id="dab-5i-ab2" customClass="AttractionsTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="mip-2C-Vqf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
