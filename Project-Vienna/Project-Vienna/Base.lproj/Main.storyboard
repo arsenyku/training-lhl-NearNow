@@ -191,7 +191,7 @@
         <scene sceneID="ie7-o8-Z3O">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="YwR-dP-FiL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Cities" image="first" id="BV6-ak-AAG"/>
+                    <tabBarItem key="tabBarItem" title="Cities" image="buildings.png" id="BV6-ak-AAG"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="xjN-k9-htU">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -208,7 +208,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="first" width="30" height="30"/>
+        <image name="buildings.png" width="32" height="32"/>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
