@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12283E191BB0B53600259558 /* AttractionsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12283E181BB0B53600259558 /* AttractionsListCell.m */; settings = {ASSET_TAGS = (); }; };
 		12716B1B1BB0A96100CC21E8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12716B191BB0A96100CC21E8 /* Model.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		CA4C28AB1BB08630001DE2EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28AA1BB08630001DE2EB /* main.m */; };
 		CA4C28AE1BB08630001DE2EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28AD1BB08630001DE2EB /* AppDelegate.m */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12283E171BB0B53600259558 /* AttractionsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionsListCell.h; sourceTree = "<group>"; };
+		12283E181BB0B53600259558 /* AttractionsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttractionsListCell.m; sourceTree = "<group>"; };
 		12716B1A1BB0A96100CC21E8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		CA4C28A61BB08630001DE2EB /* Project-Vienna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-Vienna.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA4C28AA1BB08630001DE2EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -65,6 +68,8 @@
 			children = (
 				CA4C28AC1BB08630001DE2EB /* AppDelegate.h */,
 				CA4C28AD1BB08630001DE2EB /* AppDelegate.m */,
+				12283E171BB0B53600259558 /* AttractionsListCell.h */,
+				12283E181BB0B53600259558 /* AttractionsListCell.m */,
 				CA4C28AF1BB08630001DE2EB /* CityViewController.h */,
 				CA4C28B01BB08630001DE2EB /* CityViewController.m */,
 				CA4C28B21BB08630001DE2EB /* SecondViewController.h */,
@@ -161,6 +166,7 @@
 				CA4C28AE1BB08630001DE2EB /* AppDelegate.m in Sources */,
 				12716B1B1BB0A96100CC21E8 /* Model.xcdatamodeld in Sources */,
 				CA4C28B11BB08630001DE2EB /* CityViewController.m in Sources */,
+				12283E191BB0B53600259558 /* AttractionsListCell.m in Sources */,
 				CA4C28AB1BB08630001DE2EB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
