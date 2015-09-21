@@ -16,6 +16,7 @@
 		CA4C28B71BB08630001DE2EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28B51BB08630001DE2EB /* Main.storyboard */; };
 		CA4C28B91BB08630001DE2EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28B81BB08630001DE2EB /* Assets.xcassets */; };
 		CA4C28BC1BB08630001DE2EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28BA1BB08630001DE2EB /* LaunchScreen.storyboard */; };
+		CA4C28C71BB0B737001DE2EB /* buildings.png in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28C41BB0B737001DE2EB /* buildings.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		CA4C28B81BB08630001DE2EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA4C28BB1BB08630001DE2EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA4C28BD1BB08630001DE2EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA4C28C41BB0B737001DE2EB /* buildings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buildings.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				CA4C28B81BB08630001DE2EB /* Assets.xcassets */,
 				CA4C28BA1BB08630001DE2EB /* LaunchScreen.storyboard */,
 				CA4C28BD1BB08630001DE2EB /* Info.plist */,
+				CA4C28C91BB0B73D001DE2EB /* Images */,
 				CA4C28A91BB08630001DE2EB /* Supporting Files */,
 			);
 			path = "Project-Vienna";
@@ -90,6 +93,14 @@
 				CA4C28AA1BB08630001DE2EB /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CA4C28C91BB0B73D001DE2EB /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				CA4C28C41BB0B737001DE2EB /* buildings.png */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +163,7 @@
 				CA4C28BC1BB08630001DE2EB /* LaunchScreen.storyboard in Resources */,
 				CA4C28B91BB08630001DE2EB /* Assets.xcassets in Resources */,
 				CA4C28B71BB08630001DE2EB /* Main.storyboard in Resources */,
+				CA4C28C71BB0B737001DE2EB /* buildings.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
