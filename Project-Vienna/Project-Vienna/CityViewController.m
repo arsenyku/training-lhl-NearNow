@@ -6,13 +6,14 @@
 //  Copyright © 2015 Rodrigo Moura Gonçalves. All rights reserved.
 //
 
-#import "FirstViewController.h"
+#import "CityViewController.h"
 
-@interface FirstViewController ()
+@interface CityViewController ()
+
 
 @end
 
-@implementation FirstViewController
+@implementation CityViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
