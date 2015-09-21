@@ -8,7 +8,7 @@
         <!--Cities-->
         <scene sceneID="paH-wa-xQt">
             <objects>
-                <tableViewController id="0qK-sn-du6" sceneMemberID="viewController">
+                <tableViewController id="0qK-sn-du6" customClass="CityViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="cIA-HR-9XC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
