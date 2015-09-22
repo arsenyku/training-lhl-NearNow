@@ -130,7 +130,9 @@
                             <outlet property="delegate" destination="dab-5i-ab2" id="NrK-cw-iJX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Attractions" id="AWT-lW-qj0"/>
+                    <navigationItem key="navigationItem" title="Attractions" id="AWT-lW-qj0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="5jq-UX-uwl"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7xT-k8-gfq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -208,10 +210,16 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ehz-8v-yRs">
                                 <rect key="frame" x="20" y="20" width="32" height="32"/>
                                 <state key="normal" image="left.png"/>
+                                <connections>
+                                    <action selector="backPressedButton:" destination="6Qk-Kl-gbi" eventType="touchUpInside" id="ApW-z4-RnF"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYW-tS-R4V">
                                 <rect key="frame" x="548" y="236" width="32" height="32"/>
                                 <state key="normal" image="direction.png"/>
+                                <connections>
+                                    <action selector="directionsPressedButton:" destination="6Qk-Kl-gbi" eventType="touchUpInside" id="0iV-Ii-HNK"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
