@@ -39,6 +39,8 @@
         
         NSString *storePath = [[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) firstObject] stringByAppendingPathComponent:@"datastore.sqlite"];
         
+        NSLog(@"StorePath: %@", storePath);
+        
         NSURL *storeUrl = [NSURL fileURLWithPath:storePath];
         
         // add a NSSQLiteStoreType PS to the PSC

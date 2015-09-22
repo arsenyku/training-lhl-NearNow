@@ -9,6 +9,8 @@
 #import "Constants.h"
 #import "AttractionsTableViewController.h"
 #import "NSURLSession+DownloadFromAddress.h"
+#import "Location+CoreDataProperties.h"
+
 
 @interface AttractionsTableViewController ()
 
@@ -106,10 +108,8 @@
 
 -(void) loadData{
     // lat long radius type key
-    NSString *latitude =  @"40.7127837";
-    NSString *longitude = @"-74.0059413";
 
-    NSString *dataAddress = [NSString stringWithFormat:RADAR_API, latitude, longitude, @"50000", @"museum", API_KEY];
+    NSString *dataAddress = [NSString stringWithFormat:RADAR_API, NEW_YORK_LATITUDE, NEW_YORK_LONGITUDE, @"50000", @"museum", API_KEY];
     [NSURLSession downloadFromAddress:dataAddress completion:^(NSData *data, NSURLResponse *response, NSError *error) {
         if (error){
             NSLog(@"In Theatres Endpoint Download Error: %@", error);
@@ -136,8 +136,17 @@
             
             NSLog(@"%@ -- %@ -- %@", placeLatitude, placeLongitude, placeId);
 
+            Location *location = [NSEntityDescription insertNewObjectForEntityForName:@"Location"
+                                                               inManagedObjectContext:self.dataStack.context];
             
+          
+            location.placeId = placeId;
+            location.latitude = placeLatitude.floatValue;
+            location.longitude = placeLongitude.floatValue;
         }
+        
+        
+        [self.dataStack.context save:&error];
         
     }];
     
