@@ -10,6 +10,7 @@
 #import "AttractionsTableViewController.h"
 #import "City.h"
 #import "Location.h"
+#import "DataStack.h"
 
 @interface CityViewController ()
 
@@ -21,13 +22,15 @@
 @property (strong, nonatomic) City *nyc;
 @property (strong, nonatomic) City *vancouver;
 
+@property (strong, nonatomic) DataStack *dataStack;
+
 @end
 
 @implementation CityViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -35,18 +38,27 @@
     if([segue.identifier isEqualToString:@"londonSegue"]){
         AttractionsTableViewController *attractions = (AttractionsTableViewController *) segue.destinationViewController;
         attractions.city = self.london;
+        attractions.dataStack = self.dataStack;
     }
     else if ([segue.identifier isEqualToString:@"newYorkSegue"]){
         AttractionsTableViewController *attractions = (AttractionsTableViewController *) segue.destinationViewController;
         attractions.city = self.nyc;
+        attractions.dataStack = self.dataStack;
     }
     else if ([segue.identifier isEqualToString:@"vancouverSegue"]){
         AttractionsTableViewController *attractions = (AttractionsTableViewController *) segue.destinationViewController;
         attractions.city = self.vancouver;
+        attractions.dataStack = self.dataStack;
     }
     
 }
 
+#pragma mark - private
 
+-(DataStack*)dataStack{
+    if (! _dataStack)
+        _dataStack = [[DataStack alloc] init];
 
+    return _dataStack;
+}
 @end

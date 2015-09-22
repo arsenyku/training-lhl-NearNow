@@ -113,10 +113,13 @@
 				CA4C28B31BB08630001DE2EB /* MapAttractionsViewController.m */,
 				CA4C28AF1BB08630001DE2EB /* CityViewController.h */,
 				CA4C28B01BB08630001DE2EB /* CityViewController.m */,
+<<<<<<< HEAD
+=======
 				CA4C28B21BB08630001DE2EB /* SecondViewController.h */,
 				CA4C28B31BB08630001DE2EB /* SecondViewController.m */,
 				12283E1E1BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.m */,
 				12283E1F1BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.h */,
+>>>>>>> a4ef0d4230cffa75b4ccf18e15b23d1d32d0a2c7
 				CA4C28B51BB08630001DE2EB /* Main.storyboard */,
 				CA4C28DC1BB0C6F7001DE2EB /* Model */,
 				12716B191BB0A96100CC21E8 /* Model.xcdatamodeld */,

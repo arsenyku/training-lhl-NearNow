@@ -6,7 +6,9 @@
 //  Copyright © 2015 Rodrigo Moura Gonçalves. All rights reserved.
 //
 
+#import "Constants.h"
 #import "AttractionsTableViewController.h"
+#import "NSURLSession+DownloadFromAddress.h"
 
 @interface AttractionsTableViewController ()
 
@@ -22,6 +24,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,5 +98,29 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+#pragma mark - private
+
+
+
+-(void) loadData{
+    // lat long radius type key
+    NSString *latitude =  @"40.7127837";
+    NSString *longitude = @"-74.0059413";
+
+    NSString *dataAddress = [NSString stringWithFormat:RADAR_API, latitude, longitude, @"50000", @"museum", API_KEY];
+    [NSURLSession downloadFromAddress:dataAddress completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSLog(@"%@", data);
+    }];
+    
+//    @property (nonatomic) float latitude;
+//    @property (nonatomic) float longitude;
+//    @property (nullable, nonatomic, retain) NSString *name;
+//    @property (nullable, nonatomic, retain) NSString *placeId;
+//    @property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *locations;
+
+}
+
 
 @end

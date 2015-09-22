@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "City.h"
 #import "Location.h"
+#import "DataStack.h"
 
 @interface AttractionsTableViewController : UITableViewController
 
 @property (nonatomic, strong) City *city;
+@property (nonatomic, strong) DataStack *dataStack;
 
 @end

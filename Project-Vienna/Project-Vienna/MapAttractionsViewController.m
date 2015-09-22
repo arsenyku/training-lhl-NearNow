@@ -7,6 +7,7 @@
 //
 
 #import "MapAttractionsViewController.h"
+#import <MapKit/MapKit.h>
 
 @interface MapAttractionsViewController ()
 
