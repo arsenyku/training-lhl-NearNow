@@ -22,6 +22,8 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+
+    [self loadData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -94,5 +96,21 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+#pragma mark - private
+
+
+
+-(void) loadData{
+    
+//    @property (nonatomic) float latitude;
+//    @property (nonatomic) float longitude;
+//    @property (nullable, nonatomic, retain) NSString *name;
+//    @property (nullable, nonatomic, retain) NSString *placeId;
+//    @property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *locations;
+
+}
+
 
 @end
