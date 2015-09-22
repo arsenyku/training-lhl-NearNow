@@ -100,10 +100,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Cities" id="9Xm-k3-YX1"/>
                     <connections>
-                        <outlet property="londonCell" destination="IbM-VG-fn5" id="Cjj-79-1UZ"/>
-                        <outlet property="nycCell" destination="jg2-Fg-tf0" id="vka-zL-9PN"/>
                         <outlet property="searchDisplayController" destination="oze-EK-Ay6" id="0OE-iU-opm"/>
-                        <outlet property="vancouverCell" destination="Hnu-tm-eGb" id="YPI-x1-M5Q"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1rP-ba-aZz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -233,7 +230,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FYW-tS-R4V">
                                 <rect key="frame" x="548" y="236" width="32" height="32"/>
-                                <state key="normal" image="direction.png"/>
+                                <state key="normal" image="direction"/>
                                 <connections>
                                     <action selector="directionsPressedButton:" destination="6Qk-Kl-gbi" eventType="touchUpInside" id="0iV-Ii-HNK"/>
                                 </connections>
@@ -383,7 +380,7 @@
     <resources>
         <image name="buildings.png" width="32" height="32"/>
         <image name="clock.png" width="32" height="32"/>
-        <image name="direction.png" width="32" height="32"/>
+        <image name="direction" width="32" height="32"/>
         <image name="left.png" width="32" height="32"/>
         <image name="map.png" width="32" height="32"/>
         <image name="pin.png" width="32" height="32"/>
