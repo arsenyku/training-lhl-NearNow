@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12A262FF1BB20AFE0094B013 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12A262FE1BB20AFE0094B013 /* CoreLocation.framework */; };
 		CA1AE4261BB207D40080D6AA /* City+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE4071BB207D40080D6AA /* City+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		CA1AE4271BB207D40080D6AA /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE4091BB207D40080D6AA /* City.m */; settings = {ASSET_TAGS = (); }; };
 		CA1AE4281BB207D40080D6AA /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE40B1BB207D40080D6AA /* Location+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12A262FE1BB20AFE0094B013 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CA1AE4061BB207D40080D6AA /* City+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "City+CoreDataProperties.h"; sourceTree = "<group>"; };
 		CA1AE4071BB207D40080D6AA /* City+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "City+CoreDataProperties.m"; sourceTree = "<group>"; };
 		CA1AE4081BB207D40080D6AA /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12A262FF1BB20AFE0094B013 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,6 +142,7 @@
 			children = (
 				CA4C28A81BB08630001DE2EB /* Project-Vienna */,
 				CA4C28A71BB08630001DE2EB /* Products */,
+				12A262FE1BB20AFE0094B013 /* CoreLocation.framework */,
 			);
 			sourceTree = "<group>";
 		};

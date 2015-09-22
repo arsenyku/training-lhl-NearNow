@@ -30,5 +30,5 @@
 #define LOCATION_ENTITY_NAME @"Location"
 #define USER_ENTITY_NAME @"User"
 
-
+#define ZOOM_IN_MAP_AREA 2100
 
