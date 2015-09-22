@@ -6,7 +6,9 @@
 //  Copyright © 2015 Rodrigo Moura Gonçalves. All rights reserved.
 //
 
+#import "Constants.h"
 #import "AttractionsTableViewController.h"
+#import "NSURLSession+DownloadFromAddress.h"
 
 @interface AttractionsTableViewController ()
 
@@ -103,6 +105,14 @@
 
 
 -(void) loadData{
+    // lat long radius type key
+    NSString *latitude =  @"40.7127837";
+    NSString *longitude = @"-74.0059413";
+
+    NSString *dataAddress = [NSString stringWithFormat:RADAR_API, latitude, longitude, @"50000", @"museum", API_KEY];
+    [NSURLSession downloadFromAddress:dataAddress completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        NSLog(@"%@", data);
+    }];
     
 //    @property (nonatomic) float latitude;
 //    @property (nonatomic) float longitude;

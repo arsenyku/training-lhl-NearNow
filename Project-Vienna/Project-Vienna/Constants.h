@@ -12,7 +12,7 @@
 #define PLACE_DETAILS_API @"https://maps.googleapis.com/maps/api/place/details/json?placeid=%@&key=%@"
 #define NEARBY_API @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%@,%@&radius=%@&types=%@&key=%@"
 
-
+#define RADAR_API @"https://maps.googleapis.com/maps/api/place/radarsearch/json?location=%@,%@&radius=%@&types=%@&key=%@"
 
 
 

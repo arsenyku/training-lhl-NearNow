@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		12283E191BB0B53600259558 /* AttractionsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 12283E181BB0B53600259558 /* AttractionsListCell.m */; settings = {ASSET_TAGS = (); }; };
 		12283E1C1BB0CBE200259558 /* DataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 12283E1B1BB0CBE200259558 /* DataStack.m */; settings = {ASSET_TAGS = (); }; };
+		12283E201BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 12283E1E1BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.m */; settings = {ASSET_TAGS = (); }; };
 		12716B1B1BB0A96100CC21E8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12716B191BB0A96100CC21E8 /* Model.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		CA4C28AB1BB08630001DE2EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28AA1BB08630001DE2EB /* main.m */; };
 		CA4C28AE1BB08630001DE2EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28AD1BB08630001DE2EB /* AppDelegate.m */; };
@@ -33,6 +34,8 @@
 		12283E1A1BB0CBE200259558 /* DataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStack.h; sourceTree = "<group>"; };
 		12283E1B1BB0CBE200259558 /* DataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStack.m; sourceTree = "<group>"; };
 		12283E1D1BB0CDB600259558 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		12283E1E1BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+DownloadFromAddress.m"; sourceTree = "<group>"; };
+		12283E1F1BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+DownloadFromAddress.h"; sourceTree = "<group>"; };
 		12716B1A1BB0A96100CC21E8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		CA4C28A61BB08630001DE2EB /* Project-Vienna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-Vienna.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA4C28AA1BB08630001DE2EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -106,6 +109,8 @@
 				CA4C28B01BB08630001DE2EB /* CityViewController.m */,
 				CA4C28B21BB08630001DE2EB /* SecondViewController.h */,
 				CA4C28B31BB08630001DE2EB /* SecondViewController.m */,
+				12283E1E1BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.m */,
+				12283E1F1BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.h */,
 				CA4C28B51BB08630001DE2EB /* Main.storyboard */,
 				CA4C28DC1BB0C6F7001DE2EB /* Model */,
 				12716B191BB0A96100CC21E8 /* Model.xcdatamodeld */,
@@ -235,6 +240,7 @@
 				CA4C28DA1BB0C6F0001DE2EB /* Location+CoreDataProperties.m in Sources */,
 				12716B1B1BB0A96100CC21E8 /* Model.xcdatamodeld in Sources */,
 				CA4C28B11BB08630001DE2EB /* CityViewController.m in Sources */,
+				12283E201BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.m in Sources */,
 				CA4C28D81BB0C6F0001DE2EB /* City+CoreDataProperties.m in Sources */,
 				12283E191BB0B53600259558 /* AttractionsListCell.m in Sources */,
 				CA4C28DB1BB0C6F0001DE2EB /* Location.m in Sources */,
