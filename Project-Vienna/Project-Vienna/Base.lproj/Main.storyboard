@@ -96,7 +96,6 @@
                     <navigationItem key="navigationItem" title="Cities" id="9Xm-k3-YX1"/>
                     <connections>
                         <outlet property="londonCell" destination="IbM-VG-fn5" id="Cjj-79-1UZ"/>
-                        <outlet property="newYorkCell" destination="jg2-Fg-tf0" id="swK-15-eRY"/>
                         <outlet property="nycCell" destination="jg2-Fg-tf0" id="vka-zL-9PN"/>
                         <outlet property="vancouverCell" destination="Hnu-tm-eGb" id="YPI-x1-M5Q"/>
                     </connections>
