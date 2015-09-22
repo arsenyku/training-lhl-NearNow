@@ -14,5 +14,5 @@
 
 #define RADAR_API @"https://maps.googleapis.com/maps/api/place/radarsearch/json?location=%@,%@&radius=%@&types=%@&key=%@"
 
-
-
+#define NEW_YORK_LATITUDE @"40.7127837"
+#define NEW_YORK_LONGITUDE @"-74.0059413"
