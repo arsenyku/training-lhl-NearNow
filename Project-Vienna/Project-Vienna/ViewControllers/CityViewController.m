@@ -7,20 +7,13 @@
 //
 
 #import "CityViewController.h"
+#import "Constants.h"
 #import "AttractionsTableViewController.h"
 #import "City.h"
 #import "Location.h"
 #import "DataStack.h"
 
 @interface CityViewController ()
-
-@property (weak, nonatomic) IBOutlet UITableViewCell *londonCell;
-@property (weak, nonatomic) IBOutlet UITableViewCell *nycCell;
-@property (weak, nonatomic) IBOutlet UITableViewCell *vancouverCell;
-
-@property (strong, nonatomic) City *london;
-@property (strong, nonatomic) City *nyc;
-@property (strong, nonatomic) City *vancouver;
 
 @property (strong, nonatomic) DataStack *dataStack;
 
@@ -39,17 +32,17 @@
     
     if([segue.identifier isEqualToString:@"londonSegue"]){
         AttractionsTableViewController *attractions = (AttractionsTableViewController *) segue.destinationViewController;
-        attractions.city = self.london;
+        attractions.city = [self createAndExecuteFetchRequestCityWithKey:ATTRIBUTE_PLACE_ID value:LONDON_PLACE_ID];
         attractions.dataStack = self.dataStack;
     }
     else if ([segue.identifier isEqualToString:@"newYorkSegue"]){
         AttractionsTableViewController *attractions = (AttractionsTableViewController *) segue.destinationViewController;
-        attractions.city = self.nyc;
+        attractions.city = [self createAndExecuteFetchRequestCityWithKey:ATTRIBUTE_PLACE_ID value:NEW_YORK_PLACE_ID];
         attractions.dataStack = self.dataStack;
     }
     else if ([segue.identifier isEqualToString:@"vancouverSegue"]){
         AttractionsTableViewController *attractions = (AttractionsTableViewController *) segue.destinationViewController;
-        attractions.city = self.vancouver;
+        attractions.city = [self createAndExecuteFetchRequestCityWithKey:ATTRIBUTE_PLACE_ID value:VANCOUVER_PLACE_ID];
         attractions.dataStack = self.dataStack;
     }
     
@@ -57,10 +50,27 @@
 
 #pragma mark - private
 
--(DataStack*)dataStack{
-    if (! _dataStack)
-        _dataStack = [[DataStack alloc] init];
+- (City *) createAndExecuteFetchRequestCityWithKey:(NSString *)key value:(NSString *)value {
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"City"];
+    fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K == %@", key, value];
+    NSError *error = nil;
+    NSArray *result = [self.dataStack.context executeFetchRequest:fetchRequest error:&error];
+    
+    if (error) {
+        NSLog(@"Error -> %@", error);
+    }
+    
+    return [result firstObject];
+}
 
+- (DataStack *) dataStack {
+
+    if (! _dataStack) {
+        _dataStack = [[DataStack alloc] init];
+    }
+    
     return _dataStack;
 }
+
 @end

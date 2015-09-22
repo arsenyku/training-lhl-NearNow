@@ -129,14 +129,30 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="attractionCell" id="f3C-77-A1p" customClass="AttractionsListCell">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="attractionCell" id="f3C-77-A1p" customClass="AttractionsListCell">
                                 <rect key="frame" x="0.0" y="158" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="f3C-77-A1p" id="QTp-Fd-3YK">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="567" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Attraction name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0f-zx-UJd">
+                                            <rect key="frame" x="15" y="12" width="300" height="18"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="300" id="hHs-1j-AGO"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="t0f-zx-UJd" firstAttribute="leading" secondItem="QTp-Fd-3YK" secondAttribute="leading" constant="15" id="7nP-Eq-Dap"/>
+                                        <constraint firstItem="t0f-zx-UJd" firstAttribute="centerY" secondItem="QTp-Fd-3YK" secondAttribute="centerY" id="l8C-9J-I95"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="attractionNameLabel" destination="t0f-zx-UJd" id="uss-Qx-FaQ"/>
                                     <segue destination="6Qk-Kl-gbi" kind="showDetail" identifier="detailSegue" id="9Zk-hl-FEJ"/>
                                 </connections>
                             </tableViewCell>

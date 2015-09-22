@@ -157,12 +157,12 @@
 		CA4C28A81BB08630001DE2EB /* Project-Vienna */ = {
 			isa = PBXGroup;
 			children = (
+				CA4C28AC1BB08630001DE2EB /* AppDelegate.h */,
+				CA4C28AD1BB08630001DE2EB /* AppDelegate.m */,
 				CA1AE4051BB207D40080D6AA /* Model */,
 				CA1AE4141BB207D40080D6AA /* Support */,
 				CA1AE41A1BB207D40080D6AA /* View */,
 				CA1AE41D1BB207D40080D6AA /* ViewControllers */,
-				CA4C28AC1BB08630001DE2EB /* AppDelegate.h */,
-				CA4C28AD1BB08630001DE2EB /* AppDelegate.m */,
 				CA4C28B51BB08630001DE2EB /* Main.storyboard */,
 				CA4C28B81BB08630001DE2EB /* Assets.xcassets */,
 				CA4C28BA1BB08630001DE2EB /* LaunchScreen.storyboard */,
