@@ -12,7 +12,7 @@
 		CA4C28AB1BB08630001DE2EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28AA1BB08630001DE2EB /* main.m */; };
 		CA4C28AE1BB08630001DE2EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28AD1BB08630001DE2EB /* AppDelegate.m */; };
 		CA4C28B11BB08630001DE2EB /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28B01BB08630001DE2EB /* CityViewController.m */; };
-		CA4C28B41BB08630001DE2EB /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28B31BB08630001DE2EB /* SecondViewController.m */; };
+		CA4C28B41BB08630001DE2EB /* MapAttractionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28B31BB08630001DE2EB /* MapAttractionsViewController.m */; };
 		CA4C28B71BB08630001DE2EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28B51BB08630001DE2EB /* Main.storyboard */; };
 		CA4C28B91BB08630001DE2EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28B81BB08630001DE2EB /* Assets.xcassets */; };
 		CA4C28BC1BB08630001DE2EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28BA1BB08630001DE2EB /* LaunchScreen.storyboard */; };
@@ -24,6 +24,8 @@
 		CA4C28DA1BB0C6F0001DE2EB /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28D31BB0C6F0001DE2EB /* Location+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		CA4C28DB1BB0C6F0001DE2EB /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28D51BB0C6F0001DE2EB /* Location.m */; settings = {ASSET_TAGS = (); }; };
 		CA4C28DF1BB0C90B001DE2EB /* AttractionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28DE1BB0C90B001DE2EB /* AttractionsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CA4C28E11BB0CDF1001DE2EB /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28E01BB0CDF1001DE2EB /* map.png */; settings = {ASSET_TAGS = (); }; };
+		CA4C28E31BB0EDE4001DE2EB /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28E21BB0EDE4001DE2EB /* settings.png */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +38,8 @@
 		CA4C28AD1BB08630001DE2EB /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CA4C28AF1BB08630001DE2EB /* CityViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CityViewController.h; sourceTree = "<group>"; };
 		CA4C28B01BB08630001DE2EB /* CityViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
-		CA4C28B21BB08630001DE2EB /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
-		CA4C28B31BB08630001DE2EB /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		CA4C28B21BB08630001DE2EB /* MapAttractionsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapAttractionsViewController.h; sourceTree = "<group>"; };
+		CA4C28B31BB08630001DE2EB /* MapAttractionsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MapAttractionsViewController.m; sourceTree = "<group>"; };
 		CA4C28B61BB08630001DE2EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CA4C28B81BB08630001DE2EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA4C28BB1BB08630001DE2EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +59,8 @@
 		CA4C28D51BB0C6F0001DE2EB /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = "Project-Vienna/Location.m"; sourceTree = "<group>"; };
 		CA4C28DD1BB0C90B001DE2EB /* AttractionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionsTableViewController.h; sourceTree = "<group>"; };
 		CA4C28DE1BB0C90B001DE2EB /* AttractionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttractionsTableViewController.m; sourceTree = "<group>"; };
+		CA4C28E01BB0CDF1001DE2EB /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
+		CA4C28E21BB0EDE4001DE2EB /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,10 +99,10 @@
 				12283E181BB0B53600259558 /* AttractionsListCell.m */,
 				CA4C28DD1BB0C90B001DE2EB /* AttractionsTableViewController.h */,
 				CA4C28DE1BB0C90B001DE2EB /* AttractionsTableViewController.m */,
+				CA4C28B21BB08630001DE2EB /* MapAttractionsViewController.h */,
+				CA4C28B31BB08630001DE2EB /* MapAttractionsViewController.m */,
 				CA4C28AF1BB08630001DE2EB /* CityViewController.h */,
 				CA4C28B01BB08630001DE2EB /* CityViewController.m */,
-				CA4C28B21BB08630001DE2EB /* SecondViewController.h */,
-				CA4C28B31BB08630001DE2EB /* SecondViewController.m */,
 				CA4C28B51BB08630001DE2EB /* Main.storyboard */,
 				CA4C28DC1BB0C6F7001DE2EB /* Model */,
 				12716B191BB0A96100CC21E8 /* Model.xcdatamodeld */,
@@ -122,6 +126,8 @@
 		CA4C28C91BB0B73D001DE2EB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CA4C28E01BB0CDF1001DE2EB /* map.png */,
+				CA4C28E21BB0EDE4001DE2EB /* settings.png */,
 				CA4C28C41BB0B737001DE2EB /* buildings.png */,
 			);
 			name = Images;
@@ -204,10 +210,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA4C28E31BB0EDE4001DE2EB /* settings.png in Resources */,
 				CA4C28BC1BB08630001DE2EB /* LaunchScreen.storyboard in Resources */,
 				CA4C28B91BB08630001DE2EB /* Assets.xcassets in Resources */,
 				CA4C28B71BB08630001DE2EB /* Main.storyboard in Resources */,
 				CA4C28C71BB0B737001DE2EB /* buildings.png in Resources */,
+				CA4C28E11BB0CDF1001DE2EB /* map.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,7 +229,7 @@
 				CA4C28D91BB0C6F0001DE2EB /* City.m in Sources */,
 				CA4C28D71BB0C6F0001DE2EB /* User.m in Sources */,
 				CA4C28D61BB0C6F0001DE2EB /* User+CoreDataProperties.m in Sources */,
-				CA4C28B41BB08630001DE2EB /* SecondViewController.m in Sources */,
+				CA4C28B41BB08630001DE2EB /* MapAttractionsViewController.m in Sources */,
 				CA4C28DF1BB0C90B001DE2EB /* AttractionsTableViewController.m in Sources */,
 				CA4C28AE1BB08630001DE2EB /* AppDelegate.m in Sources */,
 				CA4C28DA1BB0C6F0001DE2EB /* Location+CoreDataProperties.m in Sources */,
