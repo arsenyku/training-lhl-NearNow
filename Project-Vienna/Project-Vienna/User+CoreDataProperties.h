@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.h
 //  Project-Vienna
 //
-//  Created by Rodrigo Moura Gonçalves on 21/09/15.
+//  Created by asu on 2015-09-22.
 //  Copyright © 2015 Rodrigo Moura Gonçalves. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,16 +16,16 @@ NS_ASSUME_NONNULL_BEGIN
 @interface User (CoreDataProperties)
 
 @property (nullable, nonatomic, retain) NSString *name;
-@property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *locations;
+@property (nullable, nonatomic, retain) NSSet<Location *> *locations;
 
 @end
 
 @interface User (CoreDataGeneratedAccessors)
 
-- (void)addLocationsObject:(NSManagedObject *)value;
-- (void)removeLocationsObject:(NSManagedObject *)value;
-- (void)addLocations:(NSSet<NSManagedObject *> *)values;
-- (void)removeLocations:(NSSet<NSManagedObject *> *)values;
+- (void)addLocationsObject:(Location *)value;
+- (void)removeLocationsObject:(Location *)value;
+- (void)addLocations:(NSSet<Location *> *)values;
+- (void)removeLocations:(NSSet<Location *> *)values;
 
 @end
 
