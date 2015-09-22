@@ -11,6 +11,13 @@
 		12283E1C1BB0CBE200259558 /* DataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 12283E1B1BB0CBE200259558 /* DataStack.m */; settings = {ASSET_TAGS = (); }; };
 		12283E201BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 12283E1E1BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.m */; settings = {ASSET_TAGS = (); }; };
 		12716B1B1BB0A96100CC21E8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12716B191BB0A96100CC21E8 /* Model.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
+		CA1AE3F11BB1D92F0080D6AA /* clock.png in Resources */ = {isa = PBXBuildFile; fileRef = CA1AE3EC1BB1D92F0080D6AA /* clock.png */; settings = {ASSET_TAGS = (); }; };
+		CA1AE3F31BB1D92F0080D6AA /* pin.png in Resources */ = {isa = PBXBuildFile; fileRef = CA1AE3EE1BB1D92F0080D6AA /* pin.png */; settings = {ASSET_TAGS = (); }; };
+		CA1AE3F41BB1D92F0080D6AA /* telephone.png in Resources */ = {isa = PBXBuildFile; fileRef = CA1AE3EF1BB1D92F0080D6AA /* telephone.png */; settings = {ASSET_TAGS = (); }; };
+		CA1AE3F51BB1D92F0080D6AA /* world.png in Resources */ = {isa = PBXBuildFile; fileRef = CA1AE3F01BB1D92F0080D6AA /* world.png */; settings = {ASSET_TAGS = (); }; };
+		CA1AE3F81BB1D9D10080D6AA /* AttractionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE3F71BB1D9D10080D6AA /* AttractionDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CA1AE3FB1BB1E2410080D6AA /* direction.png in Resources */ = {isa = PBXBuildFile; fileRef = CA1AE3F91BB1E2410080D6AA /* direction.png */; settings = {ASSET_TAGS = (); }; };
+		CA1AE3FC1BB1E2410080D6AA /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = CA1AE3FA1BB1E2410080D6AA /* left.png */; settings = {ASSET_TAGS = (); }; };
 		CA4C28AB1BB08630001DE2EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28AA1BB08630001DE2EB /* main.m */; };
 		CA4C28AE1BB08630001DE2EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28AD1BB08630001DE2EB /* AppDelegate.m */; };
 		CA4C28B11BB08630001DE2EB /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28B01BB08630001DE2EB /* CityViewController.m */; };
@@ -39,6 +46,14 @@
 		12283E1E1BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+DownloadFromAddress.m"; sourceTree = "<group>"; };
 		12283E1F1BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+DownloadFromAddress.h"; sourceTree = "<group>"; };
 		12716B1A1BB0A96100CC21E8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		CA1AE3EC1BB1D92F0080D6AA /* clock.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = clock.png; sourceTree = "<group>"; };
+		CA1AE3EE1BB1D92F0080D6AA /* pin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pin.png; sourceTree = "<group>"; };
+		CA1AE3EF1BB1D92F0080D6AA /* telephone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = telephone.png; sourceTree = "<group>"; };
+		CA1AE3F01BB1D92F0080D6AA /* world.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = world.png; sourceTree = "<group>"; };
+		CA1AE3F61BB1D9D10080D6AA /* AttractionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionDetailViewController.h; sourceTree = "<group>"; };
+		CA1AE3F71BB1D9D10080D6AA /* AttractionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttractionDetailViewController.m; sourceTree = "<group>"; };
+		CA1AE3F91BB1E2410080D6AA /* direction.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = direction.png; sourceTree = "<group>"; };
+		CA1AE3FA1BB1E2410080D6AA /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
 		CA4C28A61BB08630001DE2EB /* Project-Vienna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-Vienna.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA4C28AA1BB08630001DE2EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CA4C28AC1BB08630001DE2EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -105,6 +120,8 @@
 				CA4C28AD1BB08630001DE2EB /* AppDelegate.m */,
 				12283E1A1BB0CBE200259558 /* DataStack.h */,
 				12283E1B1BB0CBE200259558 /* DataStack.m */,
+				CA1AE3F61BB1D9D10080D6AA /* AttractionDetailViewController.h */,
+				CA1AE3F71BB1D9D10080D6AA /* AttractionDetailViewController.m */,
 				12283E171BB0B53600259558 /* AttractionsListCell.h */,
 				12283E181BB0B53600259558 /* AttractionsListCell.m */,
 				CA4C28DD1BB0C90B001DE2EB /* AttractionsTableViewController.h */,
@@ -138,6 +155,12 @@
 		CA4C28C91BB0B73D001DE2EB /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				CA1AE3F91BB1E2410080D6AA /* direction.png */,
+				CA1AE3FA1BB1E2410080D6AA /* left.png */,
+				CA1AE3EC1BB1D92F0080D6AA /* clock.png */,
+				CA1AE3EE1BB1D92F0080D6AA /* pin.png */,
+				CA1AE3EF1BB1D92F0080D6AA /* telephone.png */,
+				CA1AE3F01BB1D92F0080D6AA /* world.png */,
 				CA4C28E01BB0CDF1001DE2EB /* map.png */,
 				CA4C28E21BB0EDE4001DE2EB /* settings.png */,
 				CA4C28C41BB0B737001DE2EB /* buildings.png */,
@@ -224,10 +247,16 @@
 			files = (
 				CA4C28E31BB0EDE4001DE2EB /* settings.png in Resources */,
 				CA4C28BC1BB08630001DE2EB /* LaunchScreen.storyboard in Resources */,
+				CA1AE3FC1BB1E2410080D6AA /* left.png in Resources */,
 				CA4C28B91BB08630001DE2EB /* Assets.xcassets in Resources */,
+				CA1AE3FB1BB1E2410080D6AA /* direction.png in Resources */,
+				CA1AE3F41BB1D92F0080D6AA /* telephone.png in Resources */,
 				CA4C28B71BB08630001DE2EB /* Main.storyboard in Resources */,
 				CA4C28C71BB0B737001DE2EB /* buildings.png in Resources */,
+				CA1AE3F31BB1D92F0080D6AA /* pin.png in Resources */,
+				CA1AE3F11BB1D92F0080D6AA /* clock.png in Resources */,
 				CA4C28E11BB0CDF1001DE2EB /* map.png in Resources */,
+				CA1AE3F51BB1D92F0080D6AA /* world.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -250,6 +279,7 @@
 				CA4C28B11BB08630001DE2EB /* CityViewController.m in Sources */,
 				12283E201BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.m in Sources */,
 				CA4C28D81BB0C6F0001DE2EB /* City+CoreDataProperties.m in Sources */,
+				CA1AE3F81BB1D9D10080D6AA /* AttractionDetailViewController.m in Sources */,
 				12283E191BB0B53600259558 /* AttractionsListCell.m in Sources */,
 				CA4C28DB1BB0C6F0001DE2EB /* Location.m in Sources */,
 				CA4C28AB1BB08630001DE2EB /* main.m in Sources */,
