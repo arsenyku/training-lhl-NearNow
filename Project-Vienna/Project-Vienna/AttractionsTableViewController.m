@@ -111,7 +111,34 @@
 
     NSString *dataAddress = [NSString stringWithFormat:RADAR_API, latitude, longitude, @"50000", @"museum", API_KEY];
     [NSURLSession downloadFromAddress:dataAddress completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        NSLog(@"%@", data);
+        if (error){
+            NSLog(@"In Theatres Endpoint Download Error: %@", error);
+            return;
+        }
+        
+        NSError *jsonError = nil;
+        NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
+        
+        if (jsonError){
+            NSLog(@"In Theatres Endpoint Deserialization Error: %@", error);
+            return;
+        }
+        
+        NSLog(@"dataAddress %@", dataAddress);
+        NSLog(@"places: %@", jsonData);
+        
+        NSArray *placesData = jsonData[ @"results" ];
+        
+        for (NSDictionary* placeData in placesData) {
+            NSString* placeLatitude = placeData[ @"geometry" ][ @"location" ][ @"lat" ];
+            NSString* placeLongitude = placeData[ @"geometry" ][ @"location" ][ @"lng" ];
+            NSString* placeId = placeData[ @"place_id" ];
+            
+            NSLog(@"%@ -- %@ -- %@", placeLatitude, placeLongitude, placeId);
+
+            
+        }
+        
     }];
     
 //    @property (nonatomic) float latitude;
