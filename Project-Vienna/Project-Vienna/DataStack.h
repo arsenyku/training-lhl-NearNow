@@ -8,6 +8,7 @@
 
 #import "DataStack.h"
 #import <Foundation/Foundation.h>
+#import "NSURLSession+DownloadFromAddress.h"
 
 @import CoreData;
 
@@ -15,4 +16,5 @@
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
 
+-(void)initializeDataIfNeeded;
 @end

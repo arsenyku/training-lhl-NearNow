@@ -103,60 +103,8 @@
 
 
 #pragma mark - private
-
-
-
--(void) loadData{
-    // lat long radius type key
-
-    NSString *dataAddress = [NSString stringWithFormat:RADAR_API, NEW_YORK_LATITUDE, NEW_YORK_LONGITUDE, @"50000", @"museum", API_KEY];
-    [NSURLSession downloadFromAddress:dataAddress completion:^(NSData *data, NSURLResponse *response, NSError *error) {
-        if (error){
-            NSLog(@"In Theatres Endpoint Download Error: %@", error);
-            return;
-        }
-        
-        NSError *jsonError = nil;
-        NSDictionary *jsonData = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:&jsonError];
-        
-        if (jsonError){
-            NSLog(@"In Theatres Endpoint Deserialization Error: %@", error);
-            return;
-        }
-        
-        NSLog(@"dataAddress %@", dataAddress);
-        NSLog(@"places: %@", jsonData);
-        
-        NSArray *placesData = jsonData[ @"results" ];
-        
-        for (NSDictionary* placeData in placesData) {
-            NSString* placeLatitude = placeData[ @"geometry" ][ @"location" ][ @"lat" ];
-            NSString* placeLongitude = placeData[ @"geometry" ][ @"location" ][ @"lng" ];
-            NSString* placeId = placeData[ @"place_id" ];
-            
-            NSLog(@"%@ -- %@ -- %@", placeLatitude, placeLongitude, placeId);
-
-            Location *location = [NSEntityDescription insertNewObjectForEntityForName:@"Location"
-                                                               inManagedObjectContext:self.dataStack.context];
-            
-          
-            location.placeId = placeId;
-            location.latitude = placeLatitude.floatValue;
-            location.longitude = placeLongitude.floatValue;
-        }
-        
-        
-        [self.dataStack.context save:&error];
-        
-    }];
+-(void)loadData{
     
-//    @property (nonatomic) float latitude;
-//    @property (nonatomic) float longitude;
-//    @property (nullable, nonatomic, retain) NSString *name;
-//    @property (nullable, nonatomic, retain) NSString *placeId;
-//    @property (nullable, nonatomic, retain) NSSet<NSManagedObject *> *locations;
-
 }
-
 
 @end

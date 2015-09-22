@@ -30,6 +30,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self.dataStack initializeDataIfNeeded];
 
 }
 

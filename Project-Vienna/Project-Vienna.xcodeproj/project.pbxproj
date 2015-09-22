@@ -11,6 +11,12 @@
 		12283E1C1BB0CBE200259558 /* DataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = 12283E1B1BB0CBE200259558 /* DataStack.m */; settings = {ASSET_TAGS = (); }; };
 		12283E201BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = 12283E1E1BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.m */; settings = {ASSET_TAGS = (); }; };
 		12716B1B1BB0A96100CC21E8 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 12716B191BB0A96100CC21E8 /* Model.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
+		12A262EF1BB1DADE0094B013 /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A262E41BB1DADE0094B013 /* User+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		12A262F01BB1DADE0094B013 /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A262E61BB1DADE0094B013 /* User.m */; settings = {ASSET_TAGS = (); }; };
+		12A262F11BB1DADE0094B013 /* City+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A262E81BB1DADE0094B013 /* City+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		12A262F21BB1DADE0094B013 /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A262EA1BB1DADE0094B013 /* City.m */; settings = {ASSET_TAGS = (); }; };
+		12A262F31BB1DADE0094B013 /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A262EC1BB1DADE0094B013 /* Location+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
+		12A262F41BB1DADE0094B013 /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A262EE1BB1DADE0094B013 /* Location.m */; settings = {ASSET_TAGS = (); }; };
 		CA4C28AB1BB08630001DE2EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28AA1BB08630001DE2EB /* main.m */; };
 		CA4C28AE1BB08630001DE2EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28AD1BB08630001DE2EB /* AppDelegate.m */; };
 		CA4C28B11BB08630001DE2EB /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28B01BB08630001DE2EB /* CityViewController.m */; };
@@ -19,12 +25,6 @@
 		CA4C28B91BB08630001DE2EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28B81BB08630001DE2EB /* Assets.xcassets */; };
 		CA4C28BC1BB08630001DE2EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28BA1BB08630001DE2EB /* LaunchScreen.storyboard */; };
 		CA4C28C71BB0B737001DE2EB /* buildings.png in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28C41BB0B737001DE2EB /* buildings.png */; settings = {ASSET_TAGS = (); }; };
-		CA4C28D61BB0C6F0001DE2EB /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28CB1BB0C6F0001DE2EB /* User+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
-		CA4C28D71BB0C6F0001DE2EB /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28CD1BB0C6F0001DE2EB /* User.m */; settings = {ASSET_TAGS = (); }; };
-		CA4C28D81BB0C6F0001DE2EB /* City+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28CF1BB0C6F0001DE2EB /* City+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
-		CA4C28D91BB0C6F0001DE2EB /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28D11BB0C6F0001DE2EB /* City.m */; settings = {ASSET_TAGS = (); }; };
-		CA4C28DA1BB0C6F0001DE2EB /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28D31BB0C6F0001DE2EB /* Location+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
-		CA4C28DB1BB0C6F0001DE2EB /* Location.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28D51BB0C6F0001DE2EB /* Location.m */; settings = {ASSET_TAGS = (); }; };
 		CA4C28DF1BB0C90B001DE2EB /* AttractionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28DE1BB0C90B001DE2EB /* AttractionsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CA4C28E11BB0CDF1001DE2EB /* map.png in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28E01BB0CDF1001DE2EB /* map.png */; settings = {ASSET_TAGS = (); }; };
 		CA4C28E31BB0EDE4001DE2EB /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28E21BB0EDE4001DE2EB /* settings.png */; settings = {ASSET_TAGS = (); }; };
@@ -39,6 +39,18 @@
 		12283E1E1BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+DownloadFromAddress.m"; sourceTree = "<group>"; };
 		12283E1F1BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+DownloadFromAddress.h"; sourceTree = "<group>"; };
 		12716B1A1BB0A96100CC21E8 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		12A262E31BB1DADE0094B013 /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "User+CoreDataProperties.h"; path = "Project-Vienna/User+CoreDataProperties.h"; sourceTree = "<group>"; };
+		12A262E41BB1DADE0094B013 /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "User+CoreDataProperties.m"; path = "Project-Vienna/User+CoreDataProperties.m"; sourceTree = "<group>"; };
+		12A262E51BB1DADE0094B013 /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = "Project-Vienna/User.h"; sourceTree = "<group>"; };
+		12A262E61BB1DADE0094B013 /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = "Project-Vienna/User.m"; sourceTree = "<group>"; };
+		12A262E71BB1DADE0094B013 /* City+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "City+CoreDataProperties.h"; path = "Project-Vienna/City+CoreDataProperties.h"; sourceTree = "<group>"; };
+		12A262E81BB1DADE0094B013 /* City+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "City+CoreDataProperties.m"; path = "Project-Vienna/City+CoreDataProperties.m"; sourceTree = "<group>"; };
+		12A262E91BB1DADE0094B013 /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = "Project-Vienna/City.h"; sourceTree = "<group>"; };
+		12A262EA1BB1DADE0094B013 /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = City.m; path = "Project-Vienna/City.m"; sourceTree = "<group>"; };
+		12A262EB1BB1DADE0094B013 /* Location+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Location+CoreDataProperties.h"; path = "Project-Vienna/Location+CoreDataProperties.h"; sourceTree = "<group>"; };
+		12A262EC1BB1DADE0094B013 /* Location+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Location+CoreDataProperties.m"; path = "Project-Vienna/Location+CoreDataProperties.m"; sourceTree = "<group>"; };
+		12A262ED1BB1DADE0094B013 /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = "Project-Vienna/Location.h"; sourceTree = "<group>"; };
+		12A262EE1BB1DADE0094B013 /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = "Project-Vienna/Location.m"; sourceTree = "<group>"; };
 		CA4C28A61BB08630001DE2EB /* Project-Vienna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-Vienna.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA4C28AA1BB08630001DE2EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CA4C28AC1BB08630001DE2EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -52,18 +64,6 @@
 		CA4C28BB1BB08630001DE2EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA4C28BD1BB08630001DE2EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA4C28C41BB0B737001DE2EB /* buildings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = buildings.png; sourceTree = "<group>"; };
-		CA4C28CA1BB0C6F0001DE2EB /* User+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "User+CoreDataProperties.h"; path = "Project-Vienna/User+CoreDataProperties.h"; sourceTree = "<group>"; };
-		CA4C28CB1BB0C6F0001DE2EB /* User+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "User+CoreDataProperties.m"; path = "Project-Vienna/User+CoreDataProperties.m"; sourceTree = "<group>"; };
-		CA4C28CC1BB0C6F0001DE2EB /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = User.h; path = "Project-Vienna/User.h"; sourceTree = "<group>"; };
-		CA4C28CD1BB0C6F0001DE2EB /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = User.m; path = "Project-Vienna/User.m"; sourceTree = "<group>"; };
-		CA4C28CE1BB0C6F0001DE2EB /* City+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "City+CoreDataProperties.h"; path = "Project-Vienna/City+CoreDataProperties.h"; sourceTree = "<group>"; };
-		CA4C28CF1BB0C6F0001DE2EB /* City+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "City+CoreDataProperties.m"; path = "Project-Vienna/City+CoreDataProperties.m"; sourceTree = "<group>"; };
-		CA4C28D01BB0C6F0001DE2EB /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = City.h; path = "Project-Vienna/City.h"; sourceTree = "<group>"; };
-		CA4C28D11BB0C6F0001DE2EB /* City.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = City.m; path = "Project-Vienna/City.m"; sourceTree = "<group>"; };
-		CA4C28D21BB0C6F0001DE2EB /* Location+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Location+CoreDataProperties.h"; path = "Project-Vienna/Location+CoreDataProperties.h"; sourceTree = "<group>"; };
-		CA4C28D31BB0C6F0001DE2EB /* Location+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Location+CoreDataProperties.m"; path = "Project-Vienna/Location+CoreDataProperties.m"; sourceTree = "<group>"; };
-		CA4C28D41BB0C6F0001DE2EB /* Location.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Location.h; path = "Project-Vienna/Location.h"; sourceTree = "<group>"; };
-		CA4C28D51BB0C6F0001DE2EB /* Location.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Location.m; path = "Project-Vienna/Location.m"; sourceTree = "<group>"; };
 		CA4C28DD1BB0C90B001DE2EB /* AttractionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionsTableViewController.h; sourceTree = "<group>"; };
 		CA4C28DE1BB0C90B001DE2EB /* AttractionsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttractionsTableViewController.m; sourceTree = "<group>"; };
 		CA4C28E01BB0CDF1001DE2EB /* map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map.png; sourceTree = "<group>"; };
@@ -117,7 +117,6 @@
 				12283E1F1BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.h */,
 				CA4C28B51BB08630001DE2EB /* Main.storyboard */,
 				CA4C28DC1BB0C6F7001DE2EB /* Model */,
-				12716B191BB0A96100CC21E8 /* Model.xcdatamodeld */,
 				CA4C28B81BB08630001DE2EB /* Assets.xcassets */,
 				CA4C28BA1BB08630001DE2EB /* LaunchScreen.storyboard */,
 				CA4C28BD1BB08630001DE2EB /* Info.plist */,
@@ -148,18 +147,19 @@
 		CA4C28DC1BB0C6F7001DE2EB /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CA4C28CA1BB0C6F0001DE2EB /* User+CoreDataProperties.h */,
-				CA4C28CB1BB0C6F0001DE2EB /* User+CoreDataProperties.m */,
-				CA4C28CC1BB0C6F0001DE2EB /* User.h */,
-				CA4C28CD1BB0C6F0001DE2EB /* User.m */,
-				CA4C28CE1BB0C6F0001DE2EB /* City+CoreDataProperties.h */,
-				CA4C28CF1BB0C6F0001DE2EB /* City+CoreDataProperties.m */,
-				CA4C28D01BB0C6F0001DE2EB /* City.h */,
-				CA4C28D11BB0C6F0001DE2EB /* City.m */,
-				CA4C28D21BB0C6F0001DE2EB /* Location+CoreDataProperties.h */,
-				CA4C28D31BB0C6F0001DE2EB /* Location+CoreDataProperties.m */,
-				CA4C28D41BB0C6F0001DE2EB /* Location.h */,
-				CA4C28D51BB0C6F0001DE2EB /* Location.m */,
+				12A262E31BB1DADE0094B013 /* User+CoreDataProperties.h */,
+				12A262E41BB1DADE0094B013 /* User+CoreDataProperties.m */,
+				12A262E51BB1DADE0094B013 /* User.h */,
+				12A262E61BB1DADE0094B013 /* User.m */,
+				12A262E71BB1DADE0094B013 /* City+CoreDataProperties.h */,
+				12A262E81BB1DADE0094B013 /* City+CoreDataProperties.m */,
+				12A262E91BB1DADE0094B013 /* City.h */,
+				12A262EA1BB1DADE0094B013 /* City.m */,
+				12A262EB1BB1DADE0094B013 /* Location+CoreDataProperties.h */,
+				12A262EC1BB1DADE0094B013 /* Location+CoreDataProperties.m */,
+				12A262ED1BB1DADE0094B013 /* Location.h */,
+				12A262EE1BB1DADE0094B013 /* Location.m */,
+				12716B191BB0A96100CC21E8 /* Model.xcdatamodeld */,
 			);
 			name = Model;
 			path = ..;
@@ -238,20 +238,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA4C28D91BB0C6F0001DE2EB /* City.m in Sources */,
-				CA4C28D71BB0C6F0001DE2EB /* User.m in Sources */,
-				CA4C28D61BB0C6F0001DE2EB /* User+CoreDataProperties.m in Sources */,
+				12A262F21BB1DADE0094B013 /* City.m in Sources */,
+				12A262F41BB1DADE0094B013 /* Location.m in Sources */,
+				12A262F11BB1DADE0094B013 /* City+CoreDataProperties.m in Sources */,
+				12A262EF1BB1DADE0094B013 /* User+CoreDataProperties.m in Sources */,
 				CA4C28B41BB08630001DE2EB /* MapAttractionsViewController.m in Sources */,
 				CA4C28DF1BB0C90B001DE2EB /* AttractionsTableViewController.m in Sources */,
 				CA4C28AE1BB08630001DE2EB /* AppDelegate.m in Sources */,
 				12283E1C1BB0CBE200259558 /* DataStack.m in Sources */,
-				CA4C28DA1BB0C6F0001DE2EB /* Location+CoreDataProperties.m in Sources */,
 				12716B1B1BB0A96100CC21E8 /* Model.xcdatamodeld in Sources */,
+				12A262F01BB1DADE0094B013 /* User.m in Sources */,
 				CA4C28B11BB08630001DE2EB /* CityViewController.m in Sources */,
+				12A262F31BB1DADE0094B013 /* Location+CoreDataProperties.m in Sources */,
 				12283E201BB0EE0B00259558 /* NSURLSession+DownloadFromAddress.m in Sources */,
-				CA4C28D81BB0C6F0001DE2EB /* City+CoreDataProperties.m in Sources */,
 				12283E191BB0B53600259558 /* AttractionsListCell.m in Sources */,
-				CA4C28DB1BB0C6F0001DE2EB /* Location.m in Sources */,
 				CA4C28AB1BB08630001DE2EB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -410,7 +410,8 @@
 				12716B1A1BB0A96100CC21E8 /* Model.xcdatamodel */,
 			);
 			currentVersion = 12716B1A1BB0A96100CC21E8 /* Model.xcdatamodel */;
-			path = Model.xcdatamodeld;
+			name = Model.xcdatamodeld;
+			path = "Project-Vienna/Model.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
