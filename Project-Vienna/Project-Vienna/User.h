@@ -2,12 +2,14 @@
 //  User.h
 //  Project-Vienna
 //
-//  Created by Rodrigo Moura Gonçalves on 21/09/15.
+//  Created by asu on 2015-09-22.
 //  Copyright © 2015 Rodrigo Moura Gonçalves. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+
+@class Location;
 
 NS_ASSUME_NONNULL_BEGIN
 

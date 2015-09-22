@@ -2,7 +2,7 @@
 //  Location+CoreDataProperties.h
 //  Project-Vienna
 //
-//  Created by Rodrigo Moura Gonçalves on 21/09/15.
+//  Created by asu on 2015-09-22.
 //  Copyright © 2015 Rodrigo Moura Gonçalves. All rights reserved.
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -19,6 +19,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) float longitude;
 @property (nullable, nonatomic, retain) NSString *name;
 @property (nullable, nonatomic, retain) NSString *placeId;
+@property (nullable, nonatomic, retain) NSString *address;
+@property (nullable, nonatomic, retain) NSString *phone;
+@property (nullable, nonatomic, retain) id hours;
+@property (nonatomic) float rating;
+@property (nullable, nonatomic, retain) id types;
 @property (nullable, nonatomic, retain) City *city;
 @property (nullable, nonatomic, retain) User *user;
 
