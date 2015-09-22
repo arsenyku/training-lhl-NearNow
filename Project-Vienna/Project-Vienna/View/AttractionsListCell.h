@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class Location;
+
 @interface AttractionsListCell : UITableViewCell
+
+- (void)configureCell:(Location *)location;
 
 @end

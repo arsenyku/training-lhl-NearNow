@@ -7,6 +7,13 @@
 //
 
 #import "AttractionsListCell.h"
+#import "Location.h"
+
+@interface AttractionsListCell()
+
+@property (weak, nonatomic) IBOutlet UILabel *attractionNameLabel;
+
+@end
 
 @implementation AttractionsListCell
 
@@ -18,6 +25,10 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+- (void)configureCell:(Location *)location {
+    self.attractionNameLabel.text = location.name;
 }
 
 @end

@@ -31,4 +31,7 @@
 #define USER_ENTITY_NAME @"User"
 
 
-
+#define ATTRIBUTE_PLACE_ID @"placeId"
+#define ATTRIBUTE_LATITUTE @"latitude"
+#define ATTRIBUTE_LONGITUDE @"longitude"
+#define ATTRIBUTE_NAME @"name"
