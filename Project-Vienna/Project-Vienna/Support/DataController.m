@@ -8,18 +8,18 @@
 
 #import "ApiKey.h"
 #import "Constants.h"
-#import "DataStack.h"
+#import "DataController.h"
 #import "Location.h"
 #import "City.h"
 
-@interface DataStack ()
+@interface DataController ()
 
 @property (nonatomic, strong) NSManagedObjectModel *mom;
 @property (nonatomic, strong) NSPersistentStoreCoordinator *psc;
 
 @end
 
-@implementation DataStack
+@implementation DataController
 
 - (instancetype)init
 {
@@ -250,7 +250,6 @@
     }
     
     [self saveContext];
-    
     
     NSLog(@"Downloaded %lu locations", [locations count]);
     
