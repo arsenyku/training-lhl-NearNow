@@ -12,6 +12,7 @@
 @interface AttractionTableViewCell()
 
 @property (weak, nonatomic) IBOutlet UILabel *attractionNameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *detailAttractionButton;
 
 @end
 
@@ -29,6 +30,7 @@
 
 - (void)configureCell:(Location *)location {
     self.attractionNameLabel.text = location.name;
+    self.detailAttractionButton.tag = self.tag;
 }
 
 @end

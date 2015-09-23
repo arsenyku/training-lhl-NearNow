@@ -28,6 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.attractionNameLabel.text = self.location.name;
     // Do any additional setup after loading the view.
 }
 

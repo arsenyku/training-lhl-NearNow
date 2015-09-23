@@ -6,6 +6,7 @@
 //  Copyright © 2015 Rodrigo Moura Gonçalves. All rights reserved.
 //
 #import "AttractionsTableViewController.h"
+#import "AttractionDetailViewController.h"
 #import "AttractionTableViewCell.h"
 #import "NSURLSession+DownloadFromAddress.h"
 #import "Location+CoreDataProperties.h"
@@ -45,11 +46,14 @@
 
 #pragma mark - Segue method
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton *)sender {
     
     if([segue.identifier isEqualToString:@"detailLocationSegue"]){
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        
+
+        //The tag of the button is the same of the cell and also is the same of indexPath.row
+        Location *location = [self.filteredLocations objectAtIndex:sender.tag];
+        AttractionDetailViewController *attractionDetail = (AttractionDetailViewController *) segue.destinationViewController;
+        attractionDetail.location = location;
     }
 }
 
@@ -63,9 +67,9 @@
     return [self.filteredLocations count];
 }
 
-
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     AttractionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AttractionCell" forIndexPath:indexPath];
+    cell.tag = indexPath.row;
     [cell configureCell:[self.filteredLocations objectAtIndex:indexPath.row]];
     
     //Check if the location was already saved
