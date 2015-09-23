@@ -10,6 +10,7 @@
 #import "MapAttractionsViewController.h"
 #import "LocationManager.h"
 #import "User.h"
+#import "Location.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
@@ -22,6 +23,7 @@
 @property (assign,nonatomic) BOOL mapLoadedWithVenues;
 
 @property (strong, nonatomic) User* user;
+@property (strong, nonatomic) City* city;
 
 @end
 
@@ -90,10 +92,14 @@
     
     [_mapView setRegion:adjustedRegion animated:YES];
     
+    [self fetchUser];
+    
     [self displayPins];
     
-    
 }
+
+
+#pragma mark - MKMapViewDelegate
 
 -(void)mapViewDidFinishLoadingMap:(nonnull MKMapView *)mapView{
     if (!_mapLoadedWithVenues) {
@@ -101,14 +107,55 @@
     }
 }
 
+- (MKAnnotationView *)mapView:(MKMapView *)mapView
+            viewForAnnotation:(id<MKAnnotation>)annotation{
+    
+    if ([annotation isKindOfClass:[MKUserLocation class]])
+        return nil;
+    
+    Location *location = (Location*)annotation;
+    
+    MKPinAnnotationView *annotationView =
+    (MKPinAnnotationView*)[mapView dequeueReusableAnnotationViewWithIdentifier:@"location"];
+
+    if (annotationView == nil){
+		annotationView = [[MKPinAnnotationView alloc] initWithAnnotation:annotation
+                                                         reuseIdentifier:@"location"];
+    } else{
+        annotationView.annotation = annotation;
+    }
+    
+    annotationView.canShowCallout = YES;
+
+    if ([self.user.locations containsObject:location])
+        annotationView.pinColor = MKPinAnnotationColorRed;
+    else
+	    annotationView.pinColor = MKPinAnnotationColorPurple;
+    
+    NSLog(@"Pin at %f %f", annotation.coordinate.latitude, annotation.coordinate.longitude);
+    
+    return annotationView;
+}
+
+
+#pragma mark - private
+
+-(void)selectedCity:(City *)city{
+    self.city = city;
+}
+
+#pragma mark - private
 
 -(void)setDataController:(DataController*)controller{
     _dataController = controller;
 }
 
 -(void)displayPins{
-    for (id<MKAnnotation>pin in self.user.locations) {
-        [self.mapView addAnnotation:pin];
+	if (self.city)
+    {
+        NSArray *annotations = [self.city.locations allObjects];
+        [self.mapView removeAnnotations:annotations];
+        [self.mapView addAnnotations:annotations];
     }
 }
 
@@ -128,7 +175,6 @@
         NSLog(@"%@, %@", error, error.localizedDescription);
         
     } else {
-        NSLog(@"%lu users: %@", [result count], result);
         self.user = [result firstObject];
     }
 }

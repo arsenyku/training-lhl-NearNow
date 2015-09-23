@@ -8,9 +8,14 @@
 
 #import <UIKit/UIKit.h>
 #import "DataController.h"
+#import "City.h"
+
+@protocol CitySelectionDelegate <NSObject>
+-(void)selectedCity:(City*)city;
+@end
 
 @interface CityViewController : UITableViewController
-
+@property (nonatomic, weak) id<CitySelectionDelegate> delegate;
 -(void)setDataController:(DataController *)dataController;
 
 @end

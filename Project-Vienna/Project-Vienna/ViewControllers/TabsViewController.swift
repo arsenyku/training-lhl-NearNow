@@ -34,9 +34,13 @@ class TabsViewController: UITabBarController {
             
     	self.dataController.initializeDataIfNeeded()
         
-        (self.viewControllers![0].childViewControllers[0] as! CityViewController).setDataController(self.dataController)
-        (self.viewControllers![1] as! MapAttractionsViewController).setDataController(self.dataController)
+        let cityController = self.viewControllers![0].childViewControllers[0]  as! CityViewController
+        let mapController = self.viewControllers![1] as! MapAttractionsViewController
 
+        cityController.setDataController(self.dataController)
+        mapController.setDataController(self.dataController)
+        
+        cityController.delegate = mapController 
     }
 
 

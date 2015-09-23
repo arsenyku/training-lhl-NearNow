@@ -8,9 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "DataController.h"
+#import "CityViewController.h"
 
 
-@interface MapAttractionsViewController : UIViewController
+@interface MapAttractionsViewController : UIViewController <CitySelectionDelegate>
 -(void)setDataController:(DataController *)dataController;
 
 @end

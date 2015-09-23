@@ -55,6 +55,9 @@
 
         attractions.city = [self createAndExecuteFetchRequestCityWithKey:ATTRIBUTE_PLACE_ID value:selectCity.placeId];
         attractions.dataStack = self.dataController;
+        
+        if (self.delegate)
+            [self.delegate selectedCity:attractions.city];
     }
 }
 
