@@ -126,7 +126,8 @@
         NSLog(@"%@, %@", error, error.localizedDescription);
         
     } else {
-        NSLog(@"%@", result);
+        NSLog(@"%lu users: %@", [result count], result);
+        self.user = [result firstObject];
     }
 }
 
