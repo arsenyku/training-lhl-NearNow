@@ -54,6 +54,7 @@
         Location *location = [self.filteredLocations objectAtIndex:sender.tag];
         AttractionDetailViewController *attractionDetail = (AttractionDetailViewController *) segue.destinationViewController;
         attractionDetail.location = location;
+        attractionDetail.dataController = self.dataStack;
     }
 }
 

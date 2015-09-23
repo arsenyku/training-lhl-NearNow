@@ -101,14 +101,14 @@
 }
 
 -(void)createUser{
-    [NSEntityDescription insertNewObjectForEntityForName:@"User"
+    [NSEntityDescription insertNewObjectForEntityForName:USER_ENTITY_NAME
                                                inManagedObjectContext:self.context];
 
 }
 
 -(void)createCities{
     
-    City *city = [NSEntityDescription insertNewObjectForEntityForName:@"City"
+    City *city = [NSEntityDescription insertNewObjectForEntityForName:CITY_ENTITY_NAME
                                                        inManagedObjectContext:self.context];
     
     city.name = @"New York";
@@ -121,7 +121,7 @@
     [self loadDataWithNearbyApiForCity:city latitude:NEW_YORK_LATITUDE longitude:NEW_YORK_LONGITUDE radius:@"50000" type:@"shopping_mall"];
     [self loadDataWithNearbyApiForCity:city latitude:NEW_YORK_LATITUDE longitude:NEW_YORK_LONGITUDE radius:@"50000" type:@"stadium"];
     
-    city = [NSEntityDescription insertNewObjectForEntityForName:@"City"
+    city = [NSEntityDescription insertNewObjectForEntityForName:CITY_ENTITY_NAME
                                                inManagedObjectContext:self.context];
     
     city.name = @"London";
@@ -134,7 +134,7 @@
     [self loadDataWithNearbyApiForCity:city latitude:LONDON_LATITUDE longitude:LONDON_LONGITUDE radius:@"50000" type:@"shopping_mall"];
     [self loadDataWithNearbyApiForCity:city latitude:LONDON_LATITUDE longitude:LONDON_LONGITUDE radius:@"50000" type:@"stadium"];
     
-    city = [NSEntityDescription insertNewObjectForEntityForName:@"City"
+    city = [NSEntityDescription insertNewObjectForEntityForName:CITY_ENTITY_NAME
                                                inManagedObjectContext:self.context];
     
     city.name = @"Vancouver";
@@ -161,7 +161,25 @@
         NSLog(@"Error while saving stack for location: %@", saveError);
 }
 
-
+-(void) loadDataWithPlacePhotosApiForLocation:(Location*)location completion:(void (^)(UIImage *image, NSError *error))completionHandler {
+    
+    NSString *dataAddress = [NSString stringWithFormat:PLACE_PHOTOS_API, MAX_HEIGHT, location.photoReference, API_KEY];
+    NSLog(@"dataAddress %@", dataAddress);
+    
+    [NSURLSession downloadFromAddress:dataAddress completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        if (error){
+            NSLog(@"Detail Endpoint Download Error: %@", error);
+            return;
+        }
+       
+        UIImage *downloadedImage = [UIImage imageWithData:data];
+        
+        if (completionHandler) {
+            completionHandler(downloadedImage,error);
+        }
+    }];
+}
 
 -(void) loadDataWithPlaceDetailApiForLocation:(Location*)location {
     NSString *dataAddress = [NSString stringWithFormat:PLACE_DETAILS_API, location.placeId, API_KEY];
@@ -199,6 +217,11 @@
     
 }
 
+- (void)loadImageFromLocation:(Location *)location completion:(void (^)(UIImage *image, NSError *error))completionHandler {
+    [self loadDataWithPlacePhotosApiForLocation:location completion:completionHandler];
+}
+
+
 -(void)processPlaceDetailForLocation:(Location*)location data:(NSData *)data response:(NSURLResponse *)response error:(NSError *)error{
     if (error){
         NSLog(@"Detail Endpoint Download Error: %@", error);
@@ -217,7 +240,13 @@
     location.phone = placeDetailData[ @"formatted_phone_number" ];
     location.hours = placeDetailData[ @"opening_hours" ];
     location.rating = [(NSString*)placeDetailData[ @"rating" ] floatValue];
-    location.types = placeDetailData[ @"types" ][0];
+    location.type = placeDetailData[ @"types" ][0];
+    location.website = placeDetailData[ @"website" ];
+    location.iconURL = placeDetailData[ @"icon" ];
+    
+    if (placeDetailData[@"photos"]) {
+        location.photoReference = placeDetailData[ @"photos" ][0][ @"photo_reference" ];
+    }
 
     [self saveContext];
     

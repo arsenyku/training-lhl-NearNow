@@ -132,7 +132,7 @@
 }
 
 
--(void)setDataController:(DataController *)dataController{
+- (void)setDataController:(DataController *)dataController{
     _dataController = dataController;
 }
 @end

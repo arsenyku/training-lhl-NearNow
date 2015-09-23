@@ -10,13 +10,16 @@
     <entity name="Location" representedClassName="Location" syncable="YES">
         <attribute name="address" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="hours" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="iconURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="latitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="photoReference" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="placeId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="rating" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="types" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="website" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="city" maxCount="1" deletionRule="Nullify" destinationEntity="City" inverseName="locations" inverseEntity="City" syncable="YES"/>
         <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="locations" inverseEntity="User" syncable="YES"/>
     </entity>
@@ -26,7 +29,7 @@
     </entity>
     <elements>
         <element name="City" positionX="-938" positionY="432" width="128" height="118"/>
-        <element name="Location" positionX="-578" positionY="234" width="128" height="210"/>
+        <element name="Location" positionX="-578" positionY="234" width="128" height="255"/>
         <element name="User" positionX="-333" positionY="455" width="128" height="73"/>
     </elements>
 </model>
