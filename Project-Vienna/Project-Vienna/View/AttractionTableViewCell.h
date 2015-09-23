@@ -10,7 +10,7 @@
 
 @class Location;
 
-@interface AttractionsListCell : UITableViewCell
+@interface AttractionTableViewCell : UITableViewCell
 
 - (void)configureCell:(Location *)location;
 

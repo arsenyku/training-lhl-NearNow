@@ -209,7 +209,7 @@
     location.phone = placeDetailData[ @"formatted_phone_number" ];
     location.hours = placeDetailData[ @"opening_hours" ];
     location.rating = [(NSString*)placeDetailData[ @"rating" ] floatValue];
-    
+    location.types = placeDetailData[ @"types" ][0];
 
     [self saveContext];
     
@@ -223,6 +223,10 @@
     }
     
     NSDictionary *jsonData = [self jsonFromData:data];
+    
+    if ([jsonData count] == 0) {
+        NSLog(@"No jsonData received. %@", jsonData);
+    }
     
     NSArray *placesData = jsonData[ @"results" ];
     

@@ -6,16 +6,17 @@
 //  Copyright © 2015 Rodrigo Moura Gonçalves. All rights reserved.
 //
 
-#import "AttractionsListCell.h"
+#import "AttractionTableViewCell.h"
 #import "Location.h"
 
-@interface AttractionsListCell()
+@interface AttractionTableViewCell()
 
 @property (weak, nonatomic) IBOutlet UILabel *attractionNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *attractionRatingLabel;
 
 @end
 
-@implementation AttractionsListCell
+@implementation AttractionTableViewCell
 
 - (void)awakeFromNib {
     // Initialization code
@@ -29,6 +30,7 @@
 
 - (void)configureCell:(Location *)location {
     self.attractionNameLabel.text = location.name;
+    self.attractionRatingLabel.text = [NSString stringWithFormat:@"%0.01f", location.rating];
 }
 
 @end
