@@ -6,13 +6,13 @@
 //  Copyright © 2015 Rodrigo Moura Gonçalves. All rights reserved.
 //
 
-#import "DataStack.h"
+#import "DataController.h"
 #import <Foundation/Foundation.h>
 #import "NSURLSession+DownloadFromAddress.h"
 
 @import CoreData;
 
-@interface DataStack : NSObject
+@interface DataController : NSObject
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
 

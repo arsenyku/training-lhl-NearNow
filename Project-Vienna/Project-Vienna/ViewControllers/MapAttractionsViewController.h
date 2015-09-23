@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "DataController.h"
+
 
 @interface MapAttractionsViewController : UIViewController
-
+-(void)setDataController:(DataController *)dataController;
 
 @end
 

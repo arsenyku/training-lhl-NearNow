@@ -8,18 +8,19 @@
 
 #import "ApiKey.h"
 #import "Constants.h"
-#import "DataStack.h"
+#import "DataController.h"
 #import "Location.h"
 #import "City.h"
+#import "User.h"
 
-@interface DataStack ()
+@interface DataController ()
 
 @property (nonatomic, strong) NSManagedObjectModel *mom;
 @property (nonatomic, strong) NSPersistentStoreCoordinator *psc;
 
 @end
 
-@implementation DataStack
+@implementation DataController
 
 - (instancetype)init
 {
@@ -65,7 +66,6 @@
         
         self.context.persistentStoreCoordinator = self.psc;
         
-        
     }
     return self;
 }
@@ -75,6 +75,7 @@
     
     if (!cities || [cities count] < 1){
         [self createCities];
+        [self createUser];
     }
 }
 
@@ -97,6 +98,12 @@
     }
     
     return result;
+}
+
+-(void)createUser{
+    [NSEntityDescription insertNewObjectForEntityForName:@"User"
+                                               inManagedObjectContext:self.context];
+
 }
 
 -(void)createCities{
@@ -254,7 +261,6 @@
     }
     
     [self saveContext];
-    
     
     NSLog(@"Downloaded %lu locations", [locations count]);
     

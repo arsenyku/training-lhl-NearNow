@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1226541D1BB2ED4D00D354A9 /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226541C1BB2ED4D00D354A9 /* TabsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		12A262FF1BB20AFE0094B013 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12A262FE1BB20AFE0094B013 /* CoreLocation.framework */; };
+		12A263061BB231F80094B013 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A263051BB231F80094B013 /* LocationManager.m */; settings = {ASSET_TAGS = (); }; };
 		CA1AE4261BB207D40080D6AA /* City+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE4071BB207D40080D6AA /* City+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		CA1AE4271BB207D40080D6AA /* City.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE4091BB207D40080D6AA /* City.m */; settings = {ASSET_TAGS = (); }; };
 		CA1AE4281BB207D40080D6AA /* Location+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE40B1BB207D40080D6AA /* Location+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
@@ -15,7 +17,7 @@
 		CA1AE42A1BB207D40080D6AA /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE40E1BB207D40080D6AA /* Model.xcdatamodeld */; settings = {ASSET_TAGS = (); }; };
 		CA1AE42B1BB207D40080D6AA /* User+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE4111BB207D40080D6AA /* User+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
 		CA1AE42C1BB207D40080D6AA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE4131BB207D40080D6AA /* User.m */; settings = {ASSET_TAGS = (); }; };
-		CA1AE42D1BB207D40080D6AA /* DataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE4171BB207D40080D6AA /* DataStack.m */; settings = {ASSET_TAGS = (); }; };
+		CA1AE42D1BB207D40080D6AA /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE4171BB207D40080D6AA /* DataController.m */; settings = {ASSET_TAGS = (); }; };
 		CA1AE42E1BB207D40080D6AA /* NSURLSession+DownloadFromAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE4191BB207D40080D6AA /* NSURLSession+DownloadFromAddress.m */; settings = {ASSET_TAGS = (); }; };
 		CA1AE42F1BB207D40080D6AA /* AttractionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE41C1BB207D40080D6AA /* AttractionTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		CA1AE4301BB207D40080D6AA /* AttractionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE41F1BB207D40080D6AA /* AttractionDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -31,8 +33,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1226541C1BB2ED4D00D354A9 /* TabsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsViewController.swift; sourceTree = "<group>"; };
+		122654251BB2F05600D354A9 /* Project-Vienna-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Project-Vienna-Bridging-Header.h"; sourceTree = "<group>"; };
 		12A262FE1BB20AFE0094B013 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		12A263031BB22B250094B013 /* ApiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiKey.h; sourceTree = "<group>"; };
+		12A263041BB231F80094B013 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
+		12A263051BB231F80094B013 /* LocationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocationManager.m; sourceTree = "<group>"; };
 		CA1AE4061BB207D40080D6AA /* City+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "City+CoreDataProperties.h"; sourceTree = "<group>"; };
 		CA1AE4071BB207D40080D6AA /* City+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "City+CoreDataProperties.m"; sourceTree = "<group>"; };
 		CA1AE4081BB207D40080D6AA /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
@@ -47,8 +53,8 @@
 		CA1AE4121BB207D40080D6AA /* User.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = User.h; sourceTree = "<group>"; };
 		CA1AE4131BB207D40080D6AA /* User.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = User.m; sourceTree = "<group>"; };
 		CA1AE4151BB207D40080D6AA /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
-		CA1AE4161BB207D40080D6AA /* DataStack.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataStack.h; sourceTree = "<group>"; };
-		CA1AE4171BB207D40080D6AA /* DataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStack.m; sourceTree = "<group>"; };
+		CA1AE4161BB207D40080D6AA /* DataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataController.h; sourceTree = "<group>"; };
+		CA1AE4171BB207D40080D6AA /* DataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataController.m; sourceTree = "<group>"; };
 		CA1AE4181BB207D40080D6AA /* NSURLSession+DownloadFromAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+DownloadFromAddress.h"; sourceTree = "<group>"; };
 		CA1AE4191BB207D40080D6AA /* NSURLSession+DownloadFromAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+DownloadFromAddress.m"; sourceTree = "<group>"; };
 		CA1AE41B1BB207D40080D6AA /* AttractionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionTableViewCell.h; sourceTree = "<group>"; };
@@ -110,8 +116,10 @@
 			children = (
 				12A263031BB22B250094B013 /* ApiKey.h */,
 				CA1AE4151BB207D40080D6AA /* Constants.h */,
-				CA1AE4161BB207D40080D6AA /* DataStack.h */,
-				CA1AE4171BB207D40080D6AA /* DataStack.m */,
+				CA1AE4161BB207D40080D6AA /* DataController.h */,
+				CA1AE4171BB207D40080D6AA /* DataController.m */,
+				12A263041BB231F80094B013 /* LocationManager.h */,
+				12A263051BB231F80094B013 /* LocationManager.m */,
 				CA1AE4181BB207D40080D6AA /* NSURLSession+DownloadFromAddress.h */,
 				CA1AE4191BB207D40080D6AA /* NSURLSession+DownloadFromAddress.m */,
 			);
@@ -140,6 +148,7 @@
 				CA1AE4231BB207D40080D6AA /* CityViewController.m */,
 				CA1AE4241BB207D40080D6AA /* MapAttractionsViewController.h */,
 				CA1AE4251BB207D40080D6AA /* MapAttractionsViewController.m */,
+				1226541C1BB2ED4D00D354A9 /* TabsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -170,6 +179,7 @@
 				CA1AE4141BB207D40080D6AA /* Support */,
 				CA1AE41A1BB207D40080D6AA /* View */,
 				CA1AE41D1BB207D40080D6AA /* ViewControllers */,
+				122654251BB2F05600D354A9 /* Project-Vienna-Bridging-Header.h */,
 				CA4C28B51BB08630001DE2EB /* Main.storyboard */,
 				CA4C28B81BB08630001DE2EB /* Assets.xcassets */,
 				CA4C28BA1BB08630001DE2EB /* LaunchScreen.storyboard */,
@@ -213,6 +223,7 @@
 		CA4C289E1BB08630001DE2EB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Rodrigo Moura Gonçalves";
 				TargetAttributes = {
@@ -258,14 +269,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA1AE4301BB207D40080D6AA /* AttractionDetailViewController.m in Sources */,
-				CA1AE42D1BB207D40080D6AA /* DataStack.m in Sources */,
 				CA1AE4361BB24B560080D6AA /* CityTableViewCell.m in Sources */,
+				CA1AE42D1BB207D40080D6AA /* DataController.m in Sources */,
 				CA1AE4331BB207D40080D6AA /* MapAttractionsViewController.m in Sources */,
 				CA1AE4261BB207D40080D6AA /* City+CoreDataProperties.m in Sources */,
 				CA4C28AE1BB08630001DE2EB /* AppDelegate.m in Sources */,
 				CA1AE42C1BB207D40080D6AA /* User.m in Sources */,
 				CA1AE42F1BB207D40080D6AA /* AttractionTableViewCell.m in Sources */,
 				CA1AE4281BB207D40080D6AA /* Location+CoreDataProperties.m in Sources */,
+				12A263061BB231F80094B013 /* LocationManager.m in Sources */,
 				CA1AE42A1BB207D40080D6AA /* Model.xcdatamodeld in Sources */,
 				CA1AE4271BB207D40080D6AA /* City.m in Sources */,
 				CA1AE4291BB207D40080D6AA /* Location.m in Sources */,
@@ -273,6 +285,7 @@
 				CA1AE42B1BB207D40080D6AA /* User+CoreDataProperties.m in Sources */,
 				CA1AE4321BB207D40080D6AA /* CityViewController.m in Sources */,
 				CA1AE42E1BB207D40080D6AA /* NSURLSession+DownloadFromAddress.m in Sources */,
+				1226541D1BB2ED4D00D354A9 /* TabsViewController.swift in Sources */,
 				CA4C28AB1BB08630001DE2EB /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,10 +396,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Project-Vienna/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "home.Project-Vienna";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Project-Vienna/Project-Vienna-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -394,10 +410,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = "Project-Vienna/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "home.Project-Vienna";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Project-Vienna/Project-Vienna-Bridging-Header.h";
 			};
 			name = Release;
 		};

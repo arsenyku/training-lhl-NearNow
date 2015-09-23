@@ -12,13 +12,12 @@
 #import "CityTableViewCell.h"
 #import "City.h"
 #import "Location.h"
-#import "DataStack.h"
 
 @interface CityViewController () <UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
-@property (strong, nonatomic) DataStack *dataStack;
+@property (strong, nonatomic) DataController *dataController;
 @property (strong, nonatomic) NSMutableArray *filteredCities;
 @property (strong, nonatomic) NSArray *cities;
 
@@ -29,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self.dataStack initializeDataIfNeeded];
+    [self.dataController initializeDataIfNeeded];
     
     //Get the content from NSSet and then copy to filteredCities
     self.cities = [self loadAllCities];
@@ -39,6 +38,7 @@
     self.tableView.contentOffset = CGPointMake(0, 44);
     
     self.searchBar.delegate = self;
+
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -48,8 +48,9 @@
         City *selectCity = [self.filteredCities objectAtIndex:indexPath.row];
         
         AttractionsTableViewController *attractions = (AttractionsTableViewController *) segue.destinationViewController;
+
         attractions.city = [self createAndExecuteFetchRequestCityWithKey:ATTRIBUTE_PLACE_ID value:selectCity.placeId];
-        attractions.dataStack = self.dataStack;
+        attractions.dataStack = self.dataController;
     }
 }
 
@@ -78,7 +79,6 @@
     [self filterLocationsForSearchText:searchText];
 }
 
-#pragma Helper methods
 
 - (void)filterLocationsForSearchText:(NSString *)searchText {
     
@@ -103,7 +103,7 @@
     fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:ATTRIBUTE_NAME ascending:YES]];
     
     NSError *error = nil;
-    NSArray *result = [self.dataStack.context executeFetchRequest:fetchRequest error:&error];
+    NSArray *result = [self.dataController.context executeFetchRequest:fetchRequest error:&error];
     
     if (error) {
         NSLog(@"Error -> %@", error);
@@ -117,7 +117,7 @@
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:CITY_ENTITY_NAME];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K == %@", key, value];
     NSError *error = nil;
-    NSArray *result = [self.dataStack.context executeFetchRequest:fetchRequest error:&error];
+    NSArray *result = [self.dataController.context executeFetchRequest:fetchRequest error:&error];
     
     if (error) {
         NSLog(@"Error -> %@", error);
@@ -126,15 +126,8 @@
     return [result firstObject];
 }
 
-#pragma mark - Data stack
 
-- (DataStack *)dataStack {
-
-    if (! _dataStack) {
-        _dataStack = [[DataStack alloc] init];
-    }
-    
-    return _dataStack;
+-(void)setDataController:(DataController *)dataController{
+    _dataController = dataController;
 }
-
 @end
