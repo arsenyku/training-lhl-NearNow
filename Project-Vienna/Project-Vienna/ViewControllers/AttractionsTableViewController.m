@@ -48,7 +48,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
     if([segue.identifier isEqualToString:@"detailLocationSegue"]){
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+//        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         
     }
 }

@@ -107,7 +107,9 @@
 }
 
 -(void)displayPins{
-    
+    for (id<MKAnnotation>pin in self.user.locations) {
+        [self.mapView addAnnotation:pin];
+    }
 }
 
 -(void)fetchUser{

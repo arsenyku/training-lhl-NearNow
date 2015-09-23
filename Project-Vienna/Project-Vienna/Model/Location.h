@@ -8,14 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
+@import MapKit;
 
 @class City, User;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface Location : NSManagedObject
+@interface Location : NSManagedObject <MKAnnotation>
 
-// Insert code here to declare functionality of your managed object subclass
+@property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 
 @end
 

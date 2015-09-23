@@ -10,8 +10,29 @@
 #import "City.h"
 #import "User.h"
 
+@interface Location()
+
+@end
+
 @implementation Location
 
-// Insert code here to add functionality to your managed object subclass
+-(CLLocationCoordinate2D)coordinate{
+    CLLocationCoordinate2D result;
+    result.latitude = self.latitude;
+    result.longitude = self.longitude;
+    
+    return result;
+}
+
+
+-(NSString*)title{
+    return self.name;
+}
+
+-(NSString*)subtitle{
+    return [NSString stringWithFormat:@"Type: %@, Rating:%.1f",
+            self.types[0], self.rating];
+}
+
 
 @end
