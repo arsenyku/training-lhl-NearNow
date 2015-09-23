@@ -6,7 +6,6 @@
 //  Copyright © 2015 Rodrigo Moura Gonçalves. All rights reserved.
 //
 
-#define API_KEY @"AIzaSyCcBKUJtjEwFDNW3FcIa7pGOBnb-qfg3M0"
 
 
 #define PLACE_DETAILS_API @"https://maps.googleapis.com/maps/api/place/details/json?placeid=%@&key=%@"
@@ -32,3 +31,7 @@
 
 #define ZOOM_IN_MAP_AREA 2100
 
+#define ATTRIBUTE_PLACE_ID @"placeId"
+#define ATTRIBUTE_LATITUTE @"latitude"
+#define ATTRIBUTE_LONGITUDE @"longitude"
+#define ATTRIBUTE_NAME @"name"

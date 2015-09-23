@@ -31,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		12A262FE1BB20AFE0094B013 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		12A263031BB22B250094B013 /* ApiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiKey.h; sourceTree = "<group>"; };
 		CA1AE4061BB207D40080D6AA /* City+CoreDataProperties.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "City+CoreDataProperties.h"; sourceTree = "<group>"; };
 		CA1AE4071BB207D40080D6AA /* City+CoreDataProperties.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "City+CoreDataProperties.m"; sourceTree = "<group>"; };
 		CA1AE4081BB207D40080D6AA /* City.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = City.h; sourceTree = "<group>"; };
@@ -104,6 +105,7 @@
 		CA1AE4141BB207D40080D6AA /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				12A263031BB22B250094B013 /* ApiKey.h */,
 				CA1AE4151BB207D40080D6AA /* Constants.h */,
 				CA1AE4161BB207D40080D6AA /* DataStack.h */,
 				CA1AE4171BB207D40080D6AA /* DataStack.m */,

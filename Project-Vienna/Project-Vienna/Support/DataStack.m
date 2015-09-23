@@ -6,6 +6,7 @@
 //  Copyright © 2015 Rodrigo Moura Gonçalves. All rights reserved.
 //
 
+#import "ApiKey.h"
 #import "Constants.h"
 #import "DataStack.h"
 #import "Location.h"
