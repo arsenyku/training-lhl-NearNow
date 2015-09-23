@@ -9,6 +9,7 @@
 #import "Constants.h"
 #import "MapAttractionsViewController.h"
 #import "LocationManager.h"
+#import "User.h"
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 
@@ -20,6 +21,7 @@
 @property (strong,nonatomic) CLLocation *currentLocation;
 @property (assign,nonatomic) BOOL mapLoadedWithVenues;
 
+@property (strong, nonatomic) User* user;
 
 @end
 
@@ -40,10 +42,12 @@
 
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    
+    [self fetchUser];
+    [self updateMap];
 }
-
 
 #pragma mark - CLLocationManagerDelegate
 
@@ -69,10 +73,6 @@
     if (_currentLocation == nil || _currentLocation.horizontalAccuracy >= loc.horizontalAccuracy){
         self.currentLocation = loc;
         [self updateMap];
-        
-        //        if (loc.horizontalAccuracy <= _locationManager.desiredAccuracy) {
-        //            [self stopLocationManager];
-        //        }
     }
 }
 
@@ -90,6 +90,9 @@
     
     [_mapView setRegion:adjustedRegion animated:YES];
     
+    [self displayPins];
+    
+    
 }
 
 -(void)mapViewDidFinishLoadingMap:(nonnull MKMapView *)mapView{
@@ -103,6 +106,28 @@
     _dataController = controller;
 }
 
+-(void)displayPins{
+    
+}
 
+-(void)fetchUser{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
+                                              inManagedObjectContext:self.dataController.context];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error = nil;
+    NSArray *result = [self.dataController.context
+                       executeFetchRequest:fetchRequest error:&error];
+    
+    if (error) {
+        NSLog(@"Unable to execute fetch request.");
+        NSLog(@"%@, %@", error, error.localizedDescription);
+        
+    } else {
+        NSLog(@"%@", result);
+    }
+}
 
 @end

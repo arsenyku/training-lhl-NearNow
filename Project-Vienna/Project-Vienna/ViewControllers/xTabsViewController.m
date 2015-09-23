@@ -6,22 +6,23 @@
 //  Copyright © 2015 Rodrigo Moura Gonçalves. All rights reserved.
 //
 
-#import "TabsViewController.h"
+#import "xTabsViewController.h"
 #import "DataController.h"
 #import "CityViewController.h"
 #import "MapAttractionsViewController.h"
 
-@interface TabsViewController ()
+@interface xTabsViewController ()
 @property (nonatomic, strong) DataController *dataController;
 @end
 
-@implementation TabsViewController
+@implementation xTabsViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    if (!self.dataController)
+    if (!self.dataController){
         self.dataController = [[DataController alloc] init];
+    }
     
 
     [self.viewControllers[0].childViewControllers[0] setDataController:self.dataController];

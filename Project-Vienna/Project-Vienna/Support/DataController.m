@@ -11,6 +11,7 @@
 #import "DataController.h"
 #import "Location.h"
 #import "City.h"
+#import "User.h"
 
 @interface DataController ()
 
@@ -65,7 +66,6 @@
         
         self.context.persistentStoreCoordinator = self.psc;
         
-        
     }
     return self;
 }
@@ -75,6 +75,7 @@
     
     if (!cities || [cities count] < 1){
         [self createCities];
+        [self createUser];
     }
 }
 
@@ -97,6 +98,12 @@
     }
     
     return result;
+}
+
+-(void)createUser{
+    [NSEntityDescription insertNewObjectForEntityForName:@"User"
+                                               inManagedObjectContext:self.context];
+
 }
 
 -(void)createCities{

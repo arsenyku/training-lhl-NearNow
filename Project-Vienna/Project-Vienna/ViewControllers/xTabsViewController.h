@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TabsViewController : UITabBarController
+@interface xTabsViewController : UITabBarController
 
 @end

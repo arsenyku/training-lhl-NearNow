@@ -11,6 +11,7 @@
 
 
 @interface MapAttractionsViewController : UIViewController
+-(void)setDataController:(DataController *)dataController;
 
 @end
 

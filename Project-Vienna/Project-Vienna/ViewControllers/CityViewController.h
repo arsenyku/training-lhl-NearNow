@@ -11,6 +11,7 @@
 
 @interface CityViewController : UITableViewController
 
+-(void)setDataController:(DataController *)dataController;
 
 @end
 
