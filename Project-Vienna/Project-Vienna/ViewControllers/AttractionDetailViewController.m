@@ -32,6 +32,7 @@
 }
 
 - (IBAction)backPressedButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (IBAction)directionsPressedButton:(id)sender {

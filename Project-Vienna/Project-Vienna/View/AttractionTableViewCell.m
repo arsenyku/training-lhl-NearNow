@@ -12,7 +12,6 @@
 @interface AttractionTableViewCell()
 
 @property (weak, nonatomic) IBOutlet UILabel *attractionNameLabel;
-@property (weak, nonatomic) IBOutlet UILabel *attractionRatingLabel;
 
 @end
 
@@ -30,7 +29,6 @@
 
 - (void)configureCell:(Location *)location {
     self.attractionNameLabel.text = location.name;
-    self.attractionRatingLabel.text = [NSString stringWithFormat:@"%0.01f", location.rating];
 }
 
 @end

@@ -10,6 +10,7 @@
 #import "NSURLSession+DownloadFromAddress.h"
 #import "Location+CoreDataProperties.h"
 #import "Constants.h"
+#import "User.h"
 
 
 @interface AttractionsTableViewController () <UISearchBarDelegate>
@@ -18,6 +19,7 @@
 
 @property (strong, nonatomic) NSMutableArray *filteredLocations;
 @property (strong, nonatomic) NSArray *locations;
+@property (strong, nonatomic) User *user;
 
 @end
 
@@ -28,6 +30,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //Set the user
+    [self fetchUser];
+    
     //Hidden the search bar
     self.tableView.contentOffset = CGPointMake(0, 44);
 
@@ -36,6 +41,16 @@
     self.filteredLocations = [self.locations mutableCopy];
     
     self.searchBar.delegate = self;
+}
+
+#pragma mark - Segue method
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    
+    if([segue.identifier isEqualToString:@"detailLocationSegue"]){
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        
+    }
 }
 
 #pragma mark - Table view data source
@@ -53,7 +68,38 @@
     AttractionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AttractionCell" forIndexPath:indexPath];
     [cell configureCell:[self.filteredLocations objectAtIndex:indexPath.row]];
     
+    //Check if the location was already saved
+    Location *location = [self.filteredLocations objectAtIndex:indexPath.row];
+    if ([self.user.locations containsObject:location]){
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    }
+    else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
+    
     return cell;
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    AttractionTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    
+    //Save the location that user select
+    [self.user addLocationsObject:[self.filteredLocations objectAtIndex:indexPath.row]];
+    
+    NSError *error = nil;
+    [self.dataStack.context save:&error];
+}
+
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+    AttractionTableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    
+    //Delete the location that user deselect
+    [self.user removeLocationsObject:[self.filteredLocations objectAtIndex:indexPath.row]];
+
+    NSError *error = nil;
+    [self.dataStack.context save:&error];
 }
 
 #pragma mark - SearchBar Delegate
@@ -77,6 +123,29 @@
     }
     
     [self.tableView reloadData];
+}
+
+-(void)fetchUser{
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
+                                              inManagedObjectContext:self.dataStack.context];
+    [fetchRequest setEntity:entity];
+    
+    NSError *error = nil;
+    NSArray *result = [self.dataStack.context
+                       executeFetchRequest:fetchRequest error:&error];
+    
+    if (error) {
+        NSLog(@"Unable to execute fetch request.");
+        NSLog(@"%@, %@", error, error.localizedDescription);
+        
+    } else {
+        NSLog(@"%lu users: %@", [result count], result);
+        self.user = [result firstObject];
+        NSLog(@"Count locations %lu", [self.user.locations count]);
+    }
 }
 
 @end

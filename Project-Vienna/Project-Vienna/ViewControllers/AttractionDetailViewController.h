@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Location.h"
 
 @interface AttractionDetailViewController : UIViewController
+
+@property (nonatomic, strong) Location *location;
 
 @end
