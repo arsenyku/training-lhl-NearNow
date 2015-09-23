@@ -23,6 +23,8 @@
 
 @implementation AttractionsTableViewController
 
+#pragma mark - Life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -60,7 +62,7 @@
     [self filterLocationsForSearchText:searchText];
 }
 
-#pragma Helper methods
+#pragma mark - Helper methods
 
 - (void)filterLocationsForSearchText:(NSString *)searchText {
     

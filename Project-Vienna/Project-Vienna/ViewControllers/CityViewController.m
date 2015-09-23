@@ -25,6 +25,8 @@
 
 @implementation CityViewController
 
+#pragma mark - Life cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
@@ -40,6 +42,8 @@
     self.searchBar.delegate = self;
 
 }
+
+#pragma mark - Segue method
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
@@ -79,6 +83,7 @@
     [self filterLocationsForSearchText:searchText];
 }
 
+#pragma mark - Helper methods
 
 - (void)filterLocationsForSearchText:(NSString *)searchText {
     
