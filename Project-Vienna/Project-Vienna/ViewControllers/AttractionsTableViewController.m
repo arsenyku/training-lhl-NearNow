@@ -5,15 +5,19 @@
 //  Created by Rodrigo Moura Gonçalves on 21/09/15.
 //  Copyright © 2015 Rodrigo Moura Gonçalves. All rights reserved.
 //
-
-#import "Constants.h"
 #import "AttractionsTableViewController.h"
-#import "AttractionsListCell.h"
+#import "AttractionTableViewCell.h"
 #import "NSURLSession+DownloadFromAddress.h"
 #import "Location+CoreDataProperties.h"
+#import "Constants.h"
 
 
-@interface AttractionsTableViewController ()
+@interface AttractionsTableViewController () <UISearchBarDelegate>
+
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+
+@property (strong, nonatomic) NSMutableArray *filteredLocations;
+@property (strong, nonatomic) NSArray *locations;
 
 @end
 
@@ -21,6 +25,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //Hidden the search bar
+    self.tableView.contentOffset = CGPointMake(0, 44);
+
+    //Get the content from NSSet and then copy to filteredLocations
+    self.locations = [self.city.locations allObjects];
+    self.filteredLocations = [self.locations mutableCopy];
+    
+    self.searchBar.delegate = self;
 }
 
 #pragma mark - Table view data source
@@ -30,63 +43,38 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.city.locations count];
+    return [self.filteredLocations count];
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    AttractionsListCell *cell = [tableView dequeueReusableCellWithIdentifier:@"attractionCell" forIndexPath:indexPath];
-    
-    NSArray *locations = [self.city.locations allObjects];
-    [cell configureCell:[locations objectAtIndex:indexPath.row]];
+    AttractionTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AttractionCell" forIndexPath:indexPath];
+    [cell configureCell:[self.filteredLocations objectAtIndex:indexPath.row]];
     
     return cell;
 }
 
+#pragma mark - SearchBar Delegate
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    [self filterLocationsForSearchText:searchText];
 }
-*/
 
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+#pragma Helper methods
+
+- (void)filterLocationsForSearchText:(NSString *)searchText {
+    
+    if ([searchText length] > 0) {
+        [self.filteredLocations removeAllObjects];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K contains[c] %@ || %K contains[c] %@",
+                                  ATTRIBUTE_NAME, searchText, ATTRIBUTE_TYPES, searchText];
+        self.filteredLocations = [NSMutableArray arrayWithArray:[self.locations filteredArrayUsingPredicate:predicate]];
+    }
+    else {
+        self.filteredLocations = [self.locations mutableCopy];
+    }
+    
+    [self.tableView reloadData];
 }
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 
 @end

@@ -9,13 +9,18 @@
 #import "CityViewController.h"
 #import "Constants.h"
 #import "AttractionsTableViewController.h"
+#import "CityTableViewCell.h"
 #import "City.h"
 #import "Location.h"
 #import "DataStack.h"
 
-@interface CityViewController ()
+@interface CityViewController () <UISearchBarDelegate>
+
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 
 @property (strong, nonatomic) DataStack *dataStack;
+@property (strong, nonatomic) NSMutableArray *filteredCities;
+@property (strong, nonatomic) NSArray *cities;
 
 @end
 
@@ -25,34 +30,91 @@
     [super viewDidLoad];
     
     [self.dataStack initializeDataIfNeeded];
-
+    
+    //Get the content from NSSet and then copy to filteredCities
+    self.cities = [self loadAllCities];
+    self.filteredCities = [self.cities mutableCopy];
+    
+    //Hidden the search bar
+    self.tableView.contentOffset = CGPointMake(0, 44);
+    
+    self.searchBar.delegate = self;
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     
-    if([segue.identifier isEqualToString:@"londonSegue"]){
+    if([segue.identifier isEqualToString:@"citySegue"]){
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+        City *selectCity = [self.filteredCities objectAtIndex:indexPath.row];
+        
         AttractionsTableViewController *attractions = (AttractionsTableViewController *) segue.destinationViewController;
-        attractions.city = [self createAndExecuteFetchRequestCityWithKey:ATTRIBUTE_PLACE_ID value:LONDON_PLACE_ID];
+        attractions.city = [self createAndExecuteFetchRequestCityWithKey:ATTRIBUTE_PLACE_ID value:selectCity.placeId];
         attractions.dataStack = self.dataStack;
     }
-    else if ([segue.identifier isEqualToString:@"newYorkSegue"]){
-        AttractionsTableViewController *attractions = (AttractionsTableViewController *) segue.destinationViewController;
-        attractions.city = [self createAndExecuteFetchRequestCityWithKey:ATTRIBUTE_PLACE_ID value:NEW_YORK_PLACE_ID];
-        attractions.dataStack = self.dataStack;
-    }
-    else if ([segue.identifier isEqualToString:@"vancouverSegue"]){
-        AttractionsTableViewController *attractions = (AttractionsTableViewController *) segue.destinationViewController;
-        attractions.city = [self createAndExecuteFetchRequestCityWithKey:ATTRIBUTE_PLACE_ID value:VANCOUVER_PLACE_ID];
-        attractions.dataStack = self.dataStack;
-    }
-    
 }
 
-#pragma mark - private
+#pragma mark - Table view data source
 
-- (City *) createAndExecuteFetchRequestCityWithKey:(NSString *)key value:(NSString *)value {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.filteredCities count];
+}
+
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    CityTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"CityCell" forIndexPath:indexPath];
+    [cell configureCell:[self.filteredCities objectAtIndex:indexPath.row]];
     
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:@"City"];
+    return cell;
+}
+
+
+#pragma mark - SearchBar Delegate
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
+    [self filterLocationsForSearchText:searchText];
+}
+
+#pragma Helper methods
+
+- (void)filterLocationsForSearchText:(NSString *)searchText {
+    
+    if ([searchText length] > 0) {
+        [self.filteredCities removeAllObjects];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K contains[c] %@", ATTRIBUTE_NAME, searchText];
+        self.filteredCities = [NSMutableArray arrayWithArray:[self.cities filteredArrayUsingPredicate:predicate]];
+    }
+    else {
+        self.filteredCities = [self.cities mutableCopy];
+    }
+    
+    [self.tableView reloadData];
+}
+
+#pragma mark - FetchRequest methods
+
+
+- (NSArray *)loadAllCities {
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:CITY_ENTITY_NAME];
+    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:ATTRIBUTE_NAME ascending:YES]];
+    
+    NSError *error = nil;
+    NSArray *result = [self.dataStack.context executeFetchRequest:fetchRequest error:&error];
+    
+    if (error) {
+        NSLog(@"Error -> %@", error);
+    }
+    
+    return result;
+}
+
+- (City *)createAndExecuteFetchRequestCityWithKey:(NSString *)key value:(NSString *)value {
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:CITY_ENTITY_NAME];
     fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K == %@", key, value];
     NSError *error = nil;
     NSArray *result = [self.dataStack.context executeFetchRequest:fetchRequest error:&error];
@@ -64,7 +126,9 @@
     return [result firstObject];
 }
 
-- (DataStack *) dataStack {
+#pragma mark - Data stack
+
+- (DataStack *)dataStack {
 
     if (! _dataStack) {
         _dataStack = [[DataStack alloc] init];

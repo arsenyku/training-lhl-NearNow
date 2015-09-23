@@ -17,11 +17,12 @@
 		CA1AE42C1BB207D40080D6AA /* User.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE4131BB207D40080D6AA /* User.m */; settings = {ASSET_TAGS = (); }; };
 		CA1AE42D1BB207D40080D6AA /* DataStack.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE4171BB207D40080D6AA /* DataStack.m */; settings = {ASSET_TAGS = (); }; };
 		CA1AE42E1BB207D40080D6AA /* NSURLSession+DownloadFromAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE4191BB207D40080D6AA /* NSURLSession+DownloadFromAddress.m */; settings = {ASSET_TAGS = (); }; };
-		CA1AE42F1BB207D40080D6AA /* AttractionsListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE41C1BB207D40080D6AA /* AttractionsListCell.m */; settings = {ASSET_TAGS = (); }; };
+		CA1AE42F1BB207D40080D6AA /* AttractionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE41C1BB207D40080D6AA /* AttractionTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		CA1AE4301BB207D40080D6AA /* AttractionDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE41F1BB207D40080D6AA /* AttractionDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CA1AE4311BB207D40080D6AA /* AttractionsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE4211BB207D40080D6AA /* AttractionsTableViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CA1AE4321BB207D40080D6AA /* CityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE4231BB207D40080D6AA /* CityViewController.m */; settings = {ASSET_TAGS = (); }; };
 		CA1AE4331BB207D40080D6AA /* MapAttractionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE4251BB207D40080D6AA /* MapAttractionsViewController.m */; settings = {ASSET_TAGS = (); }; };
+		CA1AE4361BB24B560080D6AA /* CityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE4351BB24B560080D6AA /* CityTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		CA4C28AB1BB08630001DE2EB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28AA1BB08630001DE2EB /* main.m */; };
 		CA4C28AE1BB08630001DE2EB /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CA4C28AD1BB08630001DE2EB /* AppDelegate.m */; };
 		CA4C28B71BB08630001DE2EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28B51BB08630001DE2EB /* Main.storyboard */; };
@@ -50,8 +51,8 @@
 		CA1AE4171BB207D40080D6AA /* DataStack.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataStack.m; sourceTree = "<group>"; };
 		CA1AE4181BB207D40080D6AA /* NSURLSession+DownloadFromAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLSession+DownloadFromAddress.h"; sourceTree = "<group>"; };
 		CA1AE4191BB207D40080D6AA /* NSURLSession+DownloadFromAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLSession+DownloadFromAddress.m"; sourceTree = "<group>"; };
-		CA1AE41B1BB207D40080D6AA /* AttractionsListCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionsListCell.h; sourceTree = "<group>"; };
-		CA1AE41C1BB207D40080D6AA /* AttractionsListCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttractionsListCell.m; sourceTree = "<group>"; };
+		CA1AE41B1BB207D40080D6AA /* AttractionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionTableViewCell.h; sourceTree = "<group>"; };
+		CA1AE41C1BB207D40080D6AA /* AttractionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttractionTableViewCell.m; sourceTree = "<group>"; };
 		CA1AE41E1BB207D40080D6AA /* AttractionDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionDetailViewController.h; sourceTree = "<group>"; };
 		CA1AE41F1BB207D40080D6AA /* AttractionDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttractionDetailViewController.m; sourceTree = "<group>"; };
 		CA1AE4201BB207D40080D6AA /* AttractionsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttractionsTableViewController.h; sourceTree = "<group>"; };
@@ -60,6 +61,8 @@
 		CA1AE4231BB207D40080D6AA /* CityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityViewController.m; sourceTree = "<group>"; };
 		CA1AE4241BB207D40080D6AA /* MapAttractionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapAttractionsViewController.h; sourceTree = "<group>"; };
 		CA1AE4251BB207D40080D6AA /* MapAttractionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapAttractionsViewController.m; sourceTree = "<group>"; };
+		CA1AE4341BB24B560080D6AA /* CityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityTableViewCell.h; sourceTree = "<group>"; };
+		CA1AE4351BB24B560080D6AA /* CityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityTableViewCell.m; sourceTree = "<group>"; };
 		CA4C28A61BB08630001DE2EB /* Project-Vienna.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Project-Vienna.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA4C28AA1BB08630001DE2EB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CA4C28AC1BB08630001DE2EB /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -118,8 +121,10 @@
 		CA1AE41A1BB207D40080D6AA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CA1AE41B1BB207D40080D6AA /* AttractionsListCell.h */,
-				CA1AE41C1BB207D40080D6AA /* AttractionsListCell.m */,
+				CA1AE41B1BB207D40080D6AA /* AttractionTableViewCell.h */,
+				CA1AE41C1BB207D40080D6AA /* AttractionTableViewCell.m */,
+				CA1AE4341BB24B560080D6AA /* CityTableViewCell.h */,
+				CA1AE4351BB24B560080D6AA /* CityTableViewCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -254,11 +259,12 @@
 			files = (
 				CA1AE4301BB207D40080D6AA /* AttractionDetailViewController.m in Sources */,
 				CA1AE42D1BB207D40080D6AA /* DataStack.m in Sources */,
+				CA1AE4361BB24B560080D6AA /* CityTableViewCell.m in Sources */,
 				CA1AE4331BB207D40080D6AA /* MapAttractionsViewController.m in Sources */,
 				CA1AE4261BB207D40080D6AA /* City+CoreDataProperties.m in Sources */,
 				CA4C28AE1BB08630001DE2EB /* AppDelegate.m in Sources */,
 				CA1AE42C1BB207D40080D6AA /* User.m in Sources */,
-				CA1AE42F1BB207D40080D6AA /* AttractionsListCell.m in Sources */,
+				CA1AE42F1BB207D40080D6AA /* AttractionTableViewCell.m in Sources */,
 				CA1AE4281BB207D40080D6AA /* Location+CoreDataProperties.m in Sources */,
 				CA1AE42A1BB207D40080D6AA /* Model.xcdatamodeld in Sources */,
 				CA1AE4271BB207D40080D6AA /* City.m in Sources */,

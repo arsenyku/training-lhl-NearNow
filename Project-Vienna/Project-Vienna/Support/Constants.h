@@ -35,3 +35,4 @@
 #define ATTRIBUTE_LATITUTE @"latitude"
 #define ATTRIBUTE_LONGITUDE @"longitude"
 #define ATTRIBUTE_NAME @"name"
+#define ATTRIBUTE_TYPES @"types"
