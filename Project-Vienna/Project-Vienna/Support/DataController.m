@@ -276,7 +276,7 @@
         
         NSLog(@"%@ -- %@ -- %@", placeLatitude, placeLongitude, placeId);
         
-        Location *location = [NSEntityDescription insertNewObjectForEntityForName:@"Location"
+        Location *location = [NSEntityDescription insertNewObjectForEntityForName:LOCATION_ENTITY_NAME
                                                            inManagedObjectContext:self.context];
         
         

@@ -28,11 +28,15 @@
 
 @implementation AttractionDetailViewController
 
+#pragma mark - Lyfe cycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [self loadInformation];
 }
+
+#pragma mark - Helper methods
 
 - (void)loadInformation {
     
@@ -46,23 +50,60 @@
     self.addressInformationLabel.text = self.location.address;
     self.phoneNumberLabel.text = self.location.phone;
     
-    if (self.location.hours != NULL) {
-        BOOL isOpenNow = self.location.hours[@"open_now"];
-        if (isOpenNow){
-           self.isOpenLabel.text = @"Open";
-        }
-        else {
-           self.isOpenLabel.text = @"Close";
-        }
-        NSDate *date = [NSDate new];
-        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
-        [dateFormatter setDateFormat:@"c"];
-        NSString *dayOfWeek = [dateFormatter stringFromDate:date];
-        self.openingHoursLabel.text = self.location.hours[@"weekday_text"][dayOfWeek.intValue];
+    [self formatIsOpenLabel];
+    [self formatOpeningHoursLabel];
+    
+    if (self.location.website != NULL) {
         self.websiteAddressLabel.text = self.location.website;
+    }
+    else {
+        self.websiteAddressLabel.text = @"Not available";
     }
 }
 
+- (void)formatIsOpenLabel {
+    
+    if (self.location.hours != NULL) {
+        
+        BOOL isOpenNow = self.location.hours[@"open_now"];
+        if (isOpenNow){
+            self.isOpenLabel.text = @"Open -";
+        }
+        else {
+            self.isOpenLabel.text = @"Closed -";
+        }
+    }
+    else {
+        self.isOpenLabel.text = @"Not available";
+    }
+}
+
+- (void)formatOpeningHoursLabel {
+  
+    if (self.location.hours != NULL) {
+        NSDate *date = [NSDate new];
+        NSDateFormatter *dateFormatter = [[NSDateFormatter alloc]init];
+
+        //Day of week 1 to 7
+        [dateFormatter setDateFormat:@"e"];
+        NSInteger dayOfWeek = [dateFormatter stringFromDate:date].intValue;
+
+        //In the Google API the first day of week is 0
+        NSInteger index = dayOfWeek - 2;
+        if (index == -1) {
+            index = 6;
+        }
+        else if (index == -2) {
+            index = 5;
+        }
+        self.openingHoursLabel.text = self.location.hours[@"weekday_text"][index];
+    }
+    else {
+        self.openingHoursLabel.text = @" ";
+    }
+}
+
+#pragma mark - IBAction methods
 
 - (IBAction)backPressedButton:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
