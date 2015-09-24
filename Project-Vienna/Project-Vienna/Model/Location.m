@@ -16,6 +16,8 @@
 
 @implementation Location
 
+@synthesize currentDistanceFromUser;
+
 -(CLLocationCoordinate2D)coordinate{
     CLLocationCoordinate2D result;
     result.latitude = self.latitude;
@@ -30,8 +32,8 @@
 }
 
 -(NSString*)subtitle{
-    return [NSString stringWithFormat:@"Type: %@, Rating:%.1f",
-            self.type, self.rating];
+    return [NSString stringWithFormat:@"Distance: %.f meters",
+            self.currentDistanceFromUser];
 }
 
 

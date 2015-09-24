@@ -45,6 +45,7 @@
 
 // In metres
 #define NOTIFICATION_DISTANCE 2000
+#define CITY_BOUNDS_THRESHOLD 55000
 
 
 

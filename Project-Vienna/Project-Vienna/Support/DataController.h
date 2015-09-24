@@ -18,6 +18,8 @@
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
 
+- (NSArray*)cities;
+
 - (void)loadImageFromLocation:(Location *)location completion:(void (^)(UIImage *image, NSError *error))completionHandler;
 
 - (void)initializeDataIfNeeded;

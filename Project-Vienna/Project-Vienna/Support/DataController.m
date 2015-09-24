@@ -100,6 +100,10 @@
     return result;
 }
 
+-(NSArray *)cities{
+    return [self fetchEntitiesNamed:CITY_ENTITY_NAME];
+}
+
 -(void)createUser{
     [NSEntityDescription insertNewObjectForEntityForName:USER_ENTITY_NAME
                                                inManagedObjectContext:self.context];

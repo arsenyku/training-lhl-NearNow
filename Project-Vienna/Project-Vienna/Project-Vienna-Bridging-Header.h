@@ -5,3 +5,4 @@
 #import "DataController.h"
 #import "CityViewController.h"
 #import "MapAttractionsViewController.h"
+#import "LocationManager.h"

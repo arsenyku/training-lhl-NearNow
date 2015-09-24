@@ -12,16 +12,14 @@
 #import "User.h"
 #import "Location.h"
 #import <MapKit/MapKit.h>
-#import <CoreLocation/CoreLocation.h>
 #import <AudioToolbox/AudioToolbox.h>
 
-@interface MapAttractionsViewController () <CLLocationManagerDelegate, MKMapViewDelegate>
+@interface MapAttractionsViewController () <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 
 @property (strong, nonatomic) DataController *dataController;
 @property (strong,nonatomic) CLLocation *currentLocation;
-@property (assign,nonatomic) BOOL mapLoadedWithVenues;
 
 @property (strong, nonatomic) User* user;
 @property (strong, nonatomic) City* city;
@@ -30,17 +28,24 @@
 
 @implementation MapAttractionsViewController
 
+-(instancetype)initWithCoder:(NSCoder *)aDecoder{
+    self = [super initWithCoder:aDecoder];
+    if (self){
+        _user = nil;
+        _city = nil;
+        _dataController = nil;
+        _currentLocation = nil;
+    }
+    return self;
+
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    //NSLog(@"%@", self.locationManager);
-    
-    self.currentLocation = nil;
-    
-    [[LocationManager sharedManager] startLocationManagerWithDelegate:self];
-    
     [self updateMap];
 }
+
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -48,6 +53,39 @@
     [self fetchUser];
     [self updateMap];
 }
+
+#pragma mark - UITabBarControllerDelegate
+
+- (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+	NSLog(@"Should activate Map tab -- Current Loc: %@, Current User: %@, Current City: %@",
+          self.currentLocation, self.user, self.city);
+    
+    if (self.city != nil)
+        return YES;
+    
+    if (self.currentLocation == nil)
+        return NO;
+    
+    if (self.dataController == nil)
+        return NO;
+    
+    NSArray *cities = [self.dataController cities];
+    for (City *city in cities) {
+        if ([self currentlyInCity:city]){
+            self.city = city;
+            return YES;
+        }
+    }
+
+    [self showAutoDismissAlertWithTitle:@"Select a city"
+                                message:@""
+                dismissalDelayInSeconds:1
+                            actionTitle:@""
+                                 action:nil];
+    
+    return NO;
+}
+
 
 #pragma mark - CLLocationManagerDelegate
 
@@ -81,11 +119,6 @@
 
 #pragma mark - MKMapViewDelegate
 
--(void)mapViewDidFinishLoadingMap:(nonnull MKMapView *)mapView{
-    if (!_mapLoadedWithVenues) {
-        [self updateMap];
-    }
-}
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView
             viewForAnnotation:(id<MKAnnotation>)annotation{
@@ -115,6 +148,10 @@
     return annotationView;
 }
 
+-(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
+    Location *location = view.annotation;
+    location.currentDistanceFromUser = [self distanceToLocation:location];
+}
 
 #pragma mark - private
 
@@ -126,6 +163,17 @@
 -(void)setDataController:(DataController*)controller{
     _dataController = controller;
 }
+
+-(BOOL)currentlyInCity:(City*)city{
+    float distanceToCity = [self distanceFromFirstLatidude:self.currentLocation.coordinate.latitude
+                                            firstLongitude:self.currentLocation.coordinate.longitude
+                                          toSecondLatitude:city.latitude
+                                           secondLongitude:city.longitude];
+    
+    return (distanceToCity <= CITY_BOUNDS_THRESHOLD);
+        
+}
+
 
 -(void)displayPins{
 	if (self.city)
@@ -174,10 +222,7 @@
 - (void) checkDistanceToFavourites {
     for (Location* favourite in self.user.locations) {
         
-        float distanceInMetres = [self distanceFromFirstLatidude:self.currentLocation.coordinate.latitude
-                                                  firstLongitude:self.currentLocation.coordinate.longitude
-                                                toSecondLatitude:favourite.latitude
-                                                 secondLongitude:favourite.longitude];
+        float distanceInMetres = [self distanceToLocation:favourite];
         
         if (distanceInMetres < NOTIFICATION_DISTANCE){
             [self playAlertSound];
@@ -185,14 +230,24 @@
     }
 }
 
-- (void) updateMap {
-    CLLocationCoordinate2D zoomLocation = CLLocationCoordinate2DMake(_currentLocation.coordinate.latitude, _currentLocation.coordinate.longitude);
+- (float)distanceToLocation:(Location*)location{
     
-    NSLog(@"%@", self.currentLocation);
+    float distanceInMetres = [self distanceFromFirstLatidude:self.currentLocation.coordinate.latitude
+                                              firstLongitude:self.currentLocation.coordinate.longitude
+                                            toSecondLatitude:location.latitude
+                                             secondLongitude:location.longitude];
+
+    return distanceInMetres;
+}
+
+
+- (void) updateMap {
+    
+    CLLocationCoordinate2D zoomLocation = CLLocationCoordinate2DMake(self.city.latitude, self.city.longitude);
     
     MKCoordinateRegion adjustedRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, ZOOM_IN_MAP_AREA, ZOOM_IN_MAP_AREA);
     
-    [_mapView setRegion:adjustedRegion animated:YES];
+    [self.mapView setRegion:adjustedRegion animated:YES];
     
     [self fetchUser];
     
@@ -229,5 +284,45 @@
         self.user = [result firstObject];
     }
 }
+
+
+-(void)showAutoDismissAlertWithTitle:(NSString*)messageTitle
+                             message:(NSString*)message
+             dismissalDelayInSeconds:(int)delay
+                         actionTitle:(NSString*)actionTitle
+                              action:(void (^)(UIAlertAction *action))handler{
+    
+    UIAlertController* alert =
+    [UIAlertController alertControllerWithTitle:messageTitle
+                                        message:message
+                                 preferredStyle:UIAlertControllerStyleAlert];
+    
+    if (actionTitle && handler){
+        UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:actionTitle
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:handler];
+        
+        [alert addAction:defaultAction];
+    }
+    
+    if (delay > 0){
+        [NSTimer scheduledTimerWithTimeInterval:delay
+                                         target:self
+                                       selector:@selector(dismissAlert)
+                                       userInfo:nil
+                                        repeats:NO];
+    }
+    
+    [self presentViewController:alert animated:YES completion:nil];
+    
+}
+
+-(void)dismissAlert{
+    [self dismissViewControllerAnimated:YES
+                             completion:^{
+
+                             }];
+}
+
 
 @end
