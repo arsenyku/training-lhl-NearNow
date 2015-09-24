@@ -24,6 +24,8 @@
 @property (strong, nonatomic) User* user;
 @property (strong, nonatomic) City* city;
 
+
+@property (strong, nonatomic) Location *lastTappedLocation;
 @end
 
 @implementation MapAttractionsViewController
@@ -35,6 +37,8 @@
         _city = nil;
         _dataController = nil;
         _currentLocation = nil;
+        _lastTappedLocation = nil;
+        
     }
     return self;
 
@@ -49,17 +53,34 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
-    [self fetchUser];
+
     [self updateMap];
 }
+
+#pragma mark - UI Control Events
+
+- (IBAction)homeToUser:(UIButton *)sender {
+
+    [self showMapAtLatitude:self.currentLocation.coordinate.latitude
+                  longitude:self.currentLocation.coordinate.longitude];
+
+}
+
+- (void)toggleLastTappedLocation{
+    if ([self.user.locations containsObject:self.lastTappedLocation]){
+        [self.user removeLocationsObject:self.lastTappedLocation];
+    } else {
+        [self.user addLocationsObject:self.lastTappedLocation];
+    }
+    [self.dataController saveContext];
+    [self updateMap];
+}
+
+
 
 #pragma mark - UITabBarControllerDelegate
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
-	NSLog(@"Should activate Map tab -- Current Loc: %@, Current User: %@, Current City: %@",
-          self.currentLocation, self.user, self.city);
-    
     if (self.city != nil)
         return YES;
     
@@ -111,10 +132,8 @@
     if (self.currentLocation == nil || self.currentLocation.horizontalAccuracy >= location.horizontalAccuracy){
         self.currentLocation = location;
         [self checkDistanceToFavourites];
-        [self updateMap];
     }
 }
-
 
 
 #pragma mark - MKMapViewDelegate
@@ -140,6 +159,13 @@
     
     annotationView.canShowCallout = YES;
 
+    UIButton* accessoryButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    [accessoryButton addTarget:self
+						action:@selector(toggleLastTappedLocation)
+              forControlEvents:UIControlEventTouchUpInside];
+
+    annotationView.rightCalloutAccessoryView = accessoryButton;
+
     if ([self.user.locations containsObject:location])
         annotationView.pinColor = MKPinAnnotationColorRed;
     else
@@ -151,7 +177,15 @@
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
     Location *location = view.annotation;
     location.currentDistanceFromUser = [self distanceToLocation:location];
+    self.lastTappedLocation = location;
+
 }
+
+//<wpt lon="-123.119550" lat="49.283420">
+//<ele>61.900000</ele>
+//<name>Track 001 000</name>
+//<sym>Flag, Blue</sym>
+//</wpt>
 
 #pragma mark - private
 
@@ -176,9 +210,9 @@
 
 
 -(void)displayPins{
-	if (self.city)
-    {
-        NSArray *annotations = [self.city.locations allObjects];
+	NSArray *cities = [self.dataController cities];
+    for (City *city in cities) {
+        NSArray *annotations = [city.locations allObjects];
         [self.mapView removeAnnotations:annotations];
         [self.mapView addAnnotations:annotations];
     }
@@ -226,6 +260,7 @@
         
         if (distanceInMetres < NOTIFICATION_DISTANCE){
             [self playAlertSound];
+            [self postNotification];
         }
     }
 }
@@ -241,9 +276,22 @@
 }
 
 
+
 - (void) updateMap {
+
+    float latitude = self.city.latitude;
+    float longitude = self.city.longitude;
     
-    CLLocationCoordinate2D zoomLocation = CLLocationCoordinate2DMake(self.city.latitude, self.city.longitude);
+    if ([self currentlyInCity:self.city]){
+        latitude = self.currentLocation.coordinate.latitude;
+        longitude = self.currentLocation.coordinate.longitude;
+    }
+    
+    [self showMapAtLatitude:latitude longitude:longitude];
+}
+
+-(void)showMapAtLatitude:(float)latitude longitude:(float)longitude {
+    CLLocationCoordinate2D zoomLocation = CLLocationCoordinate2DMake(latitude, longitude);
     
     MKCoordinateRegion adjustedRegion = MKCoordinateRegionMakeWithDistance(zoomLocation, ZOOM_IN_MAP_AREA, ZOOM_IN_MAP_AREA);
     
@@ -283,6 +331,17 @@
     } else {
         self.user = [result firstObject];
     }
+}
+
+- (void)postNotification{
+
+    UILocalNotification *post = [[UILocalNotification alloc] init];
+    post.alertTitle = @"Title";
+    post.alertBody = @"Body";
+    post.alertAction = @"Action";
+    
+    [[UIApplication sharedApplication] presentLocalNotificationNow:post];
+    
 }
 
 

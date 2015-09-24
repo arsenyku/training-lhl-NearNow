@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Cities-->
@@ -288,18 +289,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vXa-I1-qMJ">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" showsBuildings="NO" showsPointsOfInterest="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vXa-I1-qMJ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                                 <connections>
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="FvT-wq-SLI"/>
                                 </connections>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Y3-dZ-Yau">
+                                <rect key="frame" x="544" y="33" width="36" height="37"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Mpp-J9-EZD"/>
+                                    <constraint firstAttribute="width" constant="35" id="RrG-lp-xfz"/>
+                                </constraints>
+                                <state key="normal" image="location41"/>
+                                <connections>
+                                    <action selector="homeToUser:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="Ez1-Ps-2Bk"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="9Y3-dZ-Yau" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" constant="15" id="9Ea-ER-xFk"/>
                             <constraint firstItem="vXa-I1-qMJ" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="BCv-h5-ioe"/>
                             <constraint firstItem="vXa-I1-qMJ" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="F44-IG-Wrf"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="vXa-I1-qMJ" secondAttribute="bottom" id="hDo-2V-n1m"/>
+                            <constraint firstItem="9Y3-dZ-Yau" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="15" id="jR0-ge-5HM"/>
                             <constraint firstAttribute="trailing" secondItem="vXa-I1-qMJ" secondAttribute="trailing" id="nVx-XZ-on3"/>
                         </constraints>
                     </view>
@@ -376,6 +390,7 @@
         <image name="clock" width="32" height="32"/>
         <image name="direction" width="32" height="32"/>
         <image name="left" width="32" height="32"/>
+        <image name="location41" width="24" height="24"/>
         <image name="map" width="32" height="32"/>
         <image name="map.png" width="32" height="32"/>
         <image name="pin" width="32" height="32"/>

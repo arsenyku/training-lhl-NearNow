@@ -94,7 +94,7 @@
         NSLog(@"%@, %@", error, error.localizedDescription);
         
     } else {
-        NSLog(@"%@", result);
+        NSLog(@"fetched %lu entities", [result count]);
     }
     
     return result;
