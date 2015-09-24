@@ -6,6 +6,8 @@
 	<string>en</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Permission required to enable alerts when you are near places you like.</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Permission required to enable alerts when you are near places you like while the app runs in the background.</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

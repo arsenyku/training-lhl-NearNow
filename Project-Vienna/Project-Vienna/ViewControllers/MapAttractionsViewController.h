@@ -9,9 +9,10 @@
 #import <UIKit/UIKit.h>
 #import "DataController.h"
 #import "CityViewController.h"
+#import <CoreLocation/CoreLocation.h>
 
 
-@interface MapAttractionsViewController : UIViewController <CitySelectionDelegate>
+@interface MapAttractionsViewController : UIViewController <CitySelectionDelegate, CLLocationManagerDelegate, UITabBarControllerDelegate>
 -(void)setDataController:(DataController *)dataController;
 
 @end

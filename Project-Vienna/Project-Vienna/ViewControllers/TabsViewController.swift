@@ -41,6 +41,11 @@ class TabsViewController: UITabBarController {
         mapController.setDataController(self.dataController)
         
         cityController.delegate = mapController 
+
+        LocationManager.sharedManager().startLocationManagerWithDelegate(mapController)
+        
+        self.delegate = mapController;
+        
     }
 
 

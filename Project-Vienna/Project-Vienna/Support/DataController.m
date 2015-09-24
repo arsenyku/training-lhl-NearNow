@@ -100,6 +100,10 @@
     return result;
 }
 
+-(NSArray *)cities{
+    return [self fetchEntitiesNamed:CITY_ENTITY_NAME];
+}
+
 -(void)createUser{
     [NSEntityDescription insertNewObjectForEntityForName:USER_ENTITY_NAME
                                                inManagedObjectContext:self.context];
@@ -158,7 +162,7 @@
     [self.context save:&saveError];
     
     if (saveError)
-        NSLog(@"Error while saving stack for location: %@", saveError);
+        NSLog(@"Error while saving context: %@", saveError);
 }
 
 -(void) loadDataWithPlacePhotosApiForLocation:(Location*)location completion:(void (^)(UIImage *image, NSError *error))completionHandler {

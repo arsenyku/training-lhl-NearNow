@@ -42,4 +42,10 @@
 #define ATTRIBUTE_ICON_URL @"iconURL"
 #define ATTRIBUTE_WEBSITE @"website"
 #define ATTRIBUTE_PHOTO_REFERENCE @"photoReference"
+
 #define ATTRIBUTE_CITY @"city"
+
+// In metres
+#define NOTIFICATION_DISTANCE 2000
+#define CITY_BOUNDS_THRESHOLD 55000
+
