@@ -42,3 +42,9 @@
 #define ATTRIBUTE_ICON_URL @"iconURL"
 #define ATTRIBUTE_WEBSITE @"website"
 #define ATTRIBUTE_PHOTO_REFERENCE @"photoReference"
+
+// In metres
+#define NOTIFICATION_DISTANCE 2000
+
+
+

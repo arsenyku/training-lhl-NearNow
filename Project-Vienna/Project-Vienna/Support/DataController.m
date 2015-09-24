@@ -158,7 +158,7 @@
     [self.context save:&saveError];
     
     if (saveError)
-        NSLog(@"Error while saving stack for location: %@", saveError);
+        NSLog(@"Error while saving context: %@", saveError);
 }
 
 -(void) loadDataWithPlacePhotosApiForLocation:(Location*)location completion:(void (^)(UIImage *image, NSError *error))completionHandler {

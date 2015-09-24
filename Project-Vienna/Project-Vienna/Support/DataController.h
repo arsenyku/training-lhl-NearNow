@@ -22,4 +22,5 @@
 
 - (void)initializeDataIfNeeded;
 
+- (void)saveContext;
 @end

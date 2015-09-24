@@ -31,6 +31,7 @@
     _locationManager.distanceFilter = 10; //have to move 100m before location manager checks again
     
     [_locationManager requestWhenInUseAuthorization];
+    [_locationManager requestAlwaysAuthorization];
     NSLog(@"new location Manager in startLocationManager");
     
     [_locationManager startUpdatingLocation];
