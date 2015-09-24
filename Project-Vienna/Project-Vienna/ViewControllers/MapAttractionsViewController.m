@@ -81,6 +81,9 @@
 #pragma mark - UITabBarControllerDelegate
 
 - (BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController {
+	if (viewController != self)
+        return YES;
+    
     if (self.city != nil)
         return YES;
     

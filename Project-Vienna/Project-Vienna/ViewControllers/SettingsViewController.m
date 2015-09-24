@@ -25,15 +25,15 @@
 - (void)viewDidLoad {
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-    NSNumber *distanceInMeters = [NSNumber numberWithInteger:[defaults integerForKey:KEY_NOTIFICATION_DISTANCE]];
-    NSNumber *valueSaved = [self convertMetersToKilometers:distanceInMeters];
+    float distanceInMeters = [defaults floatForKey:KEY_NOTIFICATION_DISTANCE];
+    float valueSaved = [self convertMetersToKilometers:distanceInMeters];
     
-    if (valueSaved.intValue == 0) {
-        self.distanceSlider.value = 2;
+    if (valueSaved == 0.0f) {
+        self.distanceSlider.value = 1.0f;
     }
     else {
-        self.distanceSlider.value = valueSaved.floatValue;
-        [self updateDistanceLabelWithValue:valueSaved.intValue];
+        self.distanceSlider.value = valueSaved;
+        [self updateDistanceLabel];
     }
     
     [super viewDidLoad];
@@ -43,23 +43,23 @@
 #pragma mark - IBAction methods
 
 - (IBAction)distanceSliderChanged:(id)sender {
-    
-    NSUInteger index = self.distanceSlider.value;
-    [self.distanceSlider setValue:index animated:YES];
 
-    NSNumber *distance = [self formatFloatToNumber:self.distanceSlider.value];
-    [self updateDistanceLabelWithValue:distance.intValue];
-    self.minimumDistanceInMeters = [self convertKilometersToMeters:distance];
+    // Round to nearest 0.1km
+    self.distanceSlider.value = (round(self.distanceSlider.value*10.0f)) / 10.0f;
+    
+    [self updateDistanceLabel];
+    self.minimumDistanceInMeters =
+    [NSNumber numberWithFloat:[self convertKilometersToMeters:self.distanceSlider.value]];
     
      NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setInteger:self.minimumDistanceInMeters.intValue forKey:KEY_NOTIFICATION_DISTANCE];
+    [defaults setFloat:self.minimumDistanceInMeters.floatValue forKey:KEY_NOTIFICATION_DISTANCE];
 }
 
 
 #pragma mark - Helper methods
 
-- (void)updateDistanceLabelWithValue:(int)value {
-    self.distanceLabel.text = [NSString stringWithFormat:@"%d km",value];
+- (void)updateDistanceLabel {
+    self.distanceLabel.text = [NSString stringWithFormat:@"%.1f km",self.distanceSlider.value];
 }
 
 //Format a float value to NSNumber
@@ -69,15 +69,15 @@
 }
 
 //Convert a number in kilometers to meters
-- (NSNumber *)convertKilometersToMeters:(NSNumber *)kmNumber {
+- (float)convertKilometersToMeters:(float)kmNumber {
 
-    return [NSNumber numberWithInt:kmNumber.intValue * 1000];
+    return kmNumber * 1000.0f;
 }
 
 //Convert a number in meters to kilometers
-- (NSNumber *)convertMetersToKilometers:(NSNumber *)meterNumber {
+- (float)convertMetersToKilometers:(float)meterNumber {
     
-    return [NSNumber numberWithInt:meterNumber.intValue / 1000];
+    return meterNumber / 1000.0f;
 }
 
 
