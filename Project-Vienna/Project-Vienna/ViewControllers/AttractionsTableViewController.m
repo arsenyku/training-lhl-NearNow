@@ -37,8 +37,8 @@
     //Hidden the search bar
     self.tableView.contentOffset = CGPointMake(0, 44);
 
-    //Get the content from NSSet and then copy to filteredLocations
-    self.locations = [self.city.locations allObjects];
+    //Get the content from NSSet and then copy to filteredLocations and sort the content of array by name of locations
+    self.locations = [self orderLocationsByNameInArray:[self.city.locations allObjects]];
     self.filteredLocations = [self.locations mutableCopy];
     
     self.searchBar.delegate = self;
@@ -118,7 +118,17 @@
     [searchBar resignFirstResponder];
 }
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+}
+
 #pragma mark - Helper methods
+
+- (NSArray *)orderLocationsByNameInArray:(NSArray *)locations {
+    
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:ATTRIBUTE_NAME ascending:YES];
+    return [locations sortedArrayUsingDescriptors:@[descriptor]];
+}
 
 - (void)filterLocationsForSearchText:(NSString *)searchText {
     
@@ -141,7 +151,7 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
-    NSEntityDescription *entity = [NSEntityDescription entityForName:@"User"
+    NSEntityDescription *entity = [NSEntityDescription entityForName:USER_ENTITY_NAME
                                               inManagedObjectContext:self.dataStack.context];
     [fetchRequest setEntity:entity];
     
