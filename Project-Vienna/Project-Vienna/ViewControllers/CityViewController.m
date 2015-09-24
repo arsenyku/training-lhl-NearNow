@@ -87,6 +87,10 @@
     [searchBar resignFirstResponder];
 }
 
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+}
+
 #pragma mark - Helper methods
 
 - (void)filterLocationsForSearchText:(NSString *)searchText {
