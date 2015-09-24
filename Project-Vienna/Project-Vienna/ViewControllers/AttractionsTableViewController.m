@@ -22,6 +22,8 @@
 @property (strong, nonatomic) NSArray *locations;
 @property (strong, nonatomic) User *user;
 
+@property (nonatomic) BOOL onlyFavorites;
+
 @end
 
 @implementation AttractionsTableViewController
@@ -42,6 +44,7 @@
     self.filteredLocations = [self.locations mutableCopy];
     
     self.searchBar.delegate = self;
+    self.onlyFavorites = NO;
 }
 
 #pragma mark - Segue method
@@ -142,6 +145,35 @@
         self.filteredLocations = [self.locations mutableCopy];
     }
     
+    [self.tableView reloadData];
+}
+
+- (void)showFavoritesLocationsFromCurrentCity {
+    
+    [self.filteredLocations removeAllObjects];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"%K = %@", ATTRIBUTE_CITY, self.city];
+    NSArray *favoritesLocations = [[self.user.locations allObjects] filteredArrayUsingPredicate:predicate];
+    self.filteredLocations = [NSMutableArray arrayWithArray:[self orderLocationsByNameInArray:favoritesLocations]];
+}
+
+#pragma mark - IBAction methods
+
+- (IBAction)favoritesButtonPressed:(id)sender {
+    
+    if (self.onlyFavorites) {
+        self.onlyFavorites = NO;
+    }
+    else {
+        self.onlyFavorites = YES;
+    }
+    
+    if (self.onlyFavorites) {
+        [self showFavoritesLocationsFromCurrentCity];
+    }
+    else {
+        self.filteredLocations = [self.locations mutableCopy];
+    }
+
     [self.tableView reloadData];
 }
 

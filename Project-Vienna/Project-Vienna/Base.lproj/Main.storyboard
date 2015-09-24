@@ -66,7 +66,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" allowsMultipleSelection="YES" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="mip-2C-Vqf">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" placeholder="Search" showsCancelButton="YES" id="chk-I5-jpg">
                             <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -114,7 +114,13 @@
                             <outlet property="delegate" destination="dab-5i-ab2" id="NrK-cw-iJX"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Attractions" id="AWT-lW-qj0"/>
+                    <navigationItem key="navigationItem" title="Attractions" id="AWT-lW-qj0">
+                        <barButtonItem key="rightBarButtonItem" systemItem="bookmarks" id="nHS-z8-PyF">
+                            <connections>
+                                <action selector="favoritesButtonPressed:" destination="dab-5i-ab2" id="gmT-d1-oYS"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="searchBar" destination="chk-I5-jpg" id="Xb5-KB-iX8"/>
                     </connections>

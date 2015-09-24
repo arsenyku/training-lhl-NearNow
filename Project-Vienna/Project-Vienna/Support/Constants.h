@@ -42,3 +42,4 @@
 #define ATTRIBUTE_ICON_URL @"iconURL"
 #define ATTRIBUTE_WEBSITE @"website"
 #define ATTRIBUTE_PHOTO_REFERENCE @"photoReference"
+#define ATTRIBUTE_CITY @"city"
