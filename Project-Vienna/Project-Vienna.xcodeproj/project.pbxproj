@@ -31,6 +31,7 @@
 		CA4C28B71BB08630001DE2EB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28B51BB08630001DE2EB /* Main.storyboard */; };
 		CA4C28B91BB08630001DE2EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28B81BB08630001DE2EB /* Assets.xcassets */; };
 		CA4C28BC1BB08630001DE2EB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CA4C28BA1BB08630001DE2EB /* LaunchScreen.storyboard */; };
+		CA853F981BB48EDE00BE84CD /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CA853F971BB48EDE00BE84CD /* SettingsViewController.m */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +80,8 @@
 		CA4C28B81BB08630001DE2EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CA4C28BB1BB08630001DE2EB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CA4C28BD1BB08630001DE2EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA853F961BB48EDE00BE84CD /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
+		CA853F971BB48EDE00BE84CD /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +153,8 @@
 				CA1AE4231BB207D40080D6AA /* CityViewController.m */,
 				CA1AE4241BB207D40080D6AA /* MapAttractionsViewController.h */,
 				CA1AE4251BB207D40080D6AA /* MapAttractionsViewController.m */,
+				CA853F961BB48EDE00BE84CD /* SettingsViewController.h */,
+				CA853F971BB48EDE00BE84CD /* SettingsViewController.m */,
 				1226541C1BB2ED4D00D354A9 /* TabsViewController.swift */,
 			);
 			path = ViewControllers;
@@ -279,6 +284,7 @@
 				CA1AE4261BB207D40080D6AA /* City+CoreDataProperties.m in Sources */,
 				CA4C28AE1BB08630001DE2EB /* AppDelegate.m in Sources */,
 				CA1AE42C1BB207D40080D6AA /* User.m in Sources */,
+				CA853F981BB48EDE00BE84CD /* SettingsViewController.m in Sources */,
 				CA1AE42F1BB207D40080D6AA /* AttractionTableViewCell.m in Sources */,
 				CA1AE4281BB207D40080D6AA /* Location+CoreDataProperties.m in Sources */,
 				12A263061BB231F80094B013 /* LocationManager.m in Sources */,

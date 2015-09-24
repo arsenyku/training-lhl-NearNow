@@ -45,6 +45,8 @@
 
 #define ATTRIBUTE_CITY @"city"
 
+#define KEY_NOTIFICATION_DISTANCE @"notificationDistance"
+
 // In metres
 #define NOTIFICATION_DISTANCE 2000
 #define CITY_BOUNDS_THRESHOLD 55000

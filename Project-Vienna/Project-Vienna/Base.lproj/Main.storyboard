@@ -329,7 +329,7 @@
         <!--Settings-->
         <scene sceneID="IhU-CX-Z6K">
             <objects>
-                <viewController id="eQD-f8-2do" sceneMemberID="viewController">
+                <viewController id="eQD-f8-2do" customClass="SettingsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="csH-VA-hUV"/>
                         <viewControllerLayoutGuide type="bottom" id="VJV-rs-6wM"/>
@@ -337,9 +337,42 @@
                     <view key="view" contentMode="scaleToFill" id="f41-ED-nf4">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minimum distance to notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2xu-D8-SY6">
+                                <rect key="frame" x="20" y="80" width="245" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="2" minValue="2" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="XxL-hO-GRw">
+                                <rect key="frame" x="88" y="147" width="494" height="31"/>
+                                <connections>
+                                    <action selector="distanceSliderChanged:" destination="eQD-f8-2do" eventType="valueChanged" id="wey-B7-QXY"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8b-ay-V5M">
+                                <rect key="frame" x="20" y="151" width="37" height="21"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="E8b-ay-V5M" firstAttribute="leading" secondItem="f41-ED-nf4" secondAttribute="leading" constant="20" id="0U2-Ow-jRb"/>
+                            <constraint firstAttribute="trailing" secondItem="XxL-hO-GRw" secondAttribute="trailing" constant="20" id="M2w-jx-LRU"/>
+                            <constraint firstItem="XxL-hO-GRw" firstAttribute="centerY" secondItem="E8b-ay-V5M" secondAttribute="centerY" id="M6c-I7-F0J"/>
+                            <constraint firstItem="XxL-hO-GRw" firstAttribute="leading" secondItem="f41-ED-nf4" secondAttribute="leading" constant="90" id="P2O-JB-iNT"/>
+                            <constraint firstItem="E8b-ay-V5M" firstAttribute="top" secondItem="2xu-D8-SY6" secondAttribute="bottom" constant="50" id="VKd-eB-LJp"/>
+                            <constraint firstItem="2xu-D8-SY6" firstAttribute="top" secondItem="f41-ED-nf4" secondAttribute="top" constant="80" id="YMt-Zs-u8t"/>
+                            <constraint firstItem="2xu-D8-SY6" firstAttribute="leading" secondItem="f41-ED-nf4" secondAttribute="leading" constant="20" id="aGt-EB-s6d"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" image="settings" id="4Av-RP-bDb"/>
+                    <connections>
+                        <outlet property="distanceLabel" destination="E8b-ay-V5M" id="zWW-ba-FDc"/>
+                        <outlet property="distanceSlider" destination="XxL-hO-GRw" id="8Lv-QR-tfC"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="02z-gY-vPU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
