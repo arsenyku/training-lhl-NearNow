@@ -9,11 +9,17 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 
+@class Location;
+
 @interface LocationManager : NSObject
 
 - (void)startLocationManagerWithDelegate:(id<CLLocationManagerDelegate>)delegate;
 - (void)stopLocationManager;
 - (void)setDelegate:(id<CLLocationManagerDelegate>)delegate;
+
+- (void)startMonitoringGeofence:(Location*)location radius:(float)radius;
+- (void)stopMonitoringGeofence:(Location*)location;
+
 + (instancetype)sharedManager ;
 
 @end

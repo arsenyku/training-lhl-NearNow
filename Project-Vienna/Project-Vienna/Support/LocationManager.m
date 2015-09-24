@@ -7,6 +7,7 @@
 //
 
 #import "LocationManager.h"
+#import "Location.h"
 
 @interface LocationManager()
 
@@ -73,6 +74,21 @@
 
 -(void)setDelegate:(id<CLLocationManagerDelegate>)delegate{
     self.locationManager.delegate = delegate;
+}
+
+
+- (void)startMonitoringGeofence:(Location*) location radius:(float)radius{
+    CLCircularRegion *fenceArea = [[CLCircularRegion alloc]
+                                   initWithCenter:CLLocationCoordinate2DMake(location.latitude, location.longitude)
+                                   radius:radius
+                                   identifier:location.placeId];
+    
+
+    
+    [self.locationManager startMonitoringForRegion:fenceArea];
+}
+- (void)stopMonitoringGeofence:(Location*) location{
+// 	[self.locationManager stopMonitoringForRegion:region]
 }
 
 

@@ -96,6 +96,8 @@
     self.notifyWhenClose = ! self.notifyWhenClose;
     [defaults setBool:self.notifyWhenClose forKey:KEY_NOTIFY_WHEN_CLOSE];
     
+    [self setupNotifications];
+    
     [self updateMap];
 }
 
@@ -387,6 +389,42 @@
     [[UIApplication sharedApplication] presentLocalNotificationNow:post];
     
 }
+
+- (void)setupNotifications{
+
+    int numberOfFences = 10;
+    
+    NSArray* sortedByDistance = [[self.user.locations allObjects] sortedArrayUsingComparator:
+     ^NSComparisonResult(id  _Nonnull location1, id  _Nonnull location2) {
+
+         float distance1 = [self distanceToLocation:location1];
+         float distance2 = [self distanceToLocation:location2];
+         
+         if (distance1 < distance2)
+             return NSOrderedAscending;
+         
+         if (distance1 == distance2)
+             return NSOrderedSame;
+         
+         //if (distance1 > distance2)
+        return NSOrderedDescending;
+         
+         
+    }];
+    
+    if ([sortedByDistance count] > numberOfFences){
+        NSRange subArrayRange;
+        subArrayRange.location = 0;
+        subArrayRange.length = numberOfFences;
+        sortedByDistance = [sortedByDistance subarrayWithRange:subArrayRange];
+    }
+    
+    for (Location *location in sortedByDistance) {
+        [[LocationManager sharedManager] startMonitoringGeofence:location radius:self.notificationDistanceInMeters];
+    }
+
+}
+
 
 
 -(void)showAutoDismissAlertWithTitle:(NSString*)messageTitle
