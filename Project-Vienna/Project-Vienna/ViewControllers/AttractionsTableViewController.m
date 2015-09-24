@@ -113,6 +113,11 @@
     [self filterLocationsForSearchText:searchText];
 }
 
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
+    [searchBar resignFirstResponder];
+}
+
 #pragma mark - Helper methods
 
 - (void)filterLocationsForSearchText:(NSString *)searchText {
@@ -130,7 +135,9 @@
     [self.tableView reloadData];
 }
 
--(void)fetchUser{
+#pragma mark - Core data methods
+
+- (void)fetchUser {
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
     
