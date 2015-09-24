@@ -6,4 +6,4 @@
 //  Copyright © 2015 Rodrigo Moura Gonçalves. All rights reserved.
 //
 
-#define API_KEY @"ADD-API-KEY-HERE"
+#define API_KEY @"AIzaSyCcBKUJtjEwFDNW3FcIa7pGOBnb-qfg3M0"

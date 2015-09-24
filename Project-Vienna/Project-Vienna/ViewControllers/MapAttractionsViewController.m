@@ -12,11 +12,12 @@
 #import "User.h"
 #import "Location.h"
 #import <MapKit/MapKit.h>
-#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
 @interface MapAttractionsViewController () <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UIButton *trackingToggleButton;
 
 @property (strong, nonatomic) DataController *dataController;
 @property (strong,nonatomic) CLLocation *currentLocation;
@@ -24,8 +25,14 @@
 @property (strong, nonatomic) User* user;
 @property (strong, nonatomic) City* city;
 
+@property (strong, nonatomic) AVAudioPlayer *audioPlayer;
+
 
 @property (strong, nonatomic) Location *lastTappedLocation;
+
+@property (assign, nonatomic) float notificationDistanceInMeters;
+@property (assign, nonatomic) float notifyWhenClose;
+
 @end
 
 @implementation MapAttractionsViewController
@@ -38,7 +45,8 @@
         _dataController = nil;
         _currentLocation = nil;
         _lastTappedLocation = nil;
-        
+        _notificationDistanceInMeters = 1000.0f;
+        _notifyWhenClose = NO;
     }
     return self;
 
@@ -47,6 +55,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
+    self.trackingToggleButton.layer.cornerRadius = 5.0f;
+    self.trackingToggleButton.layer.masksToBounds = YES;
+    
+    [self readUserDefaults];
+    
     [self updateMap];
 }
 
@@ -76,6 +89,15 @@
     [self updateMap];
 }
 
+- (IBAction)toggleNotificationTracking:(UIButton *)sender {
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+
+    self.notifyWhenClose = ! self.notifyWhenClose;
+    [defaults setBool:self.notifyWhenClose forKey:KEY_NOTIFY_WHEN_CLOSE];
+    
+    [self updateMap];
+}
 
 
 #pragma mark - UITabBarControllerDelegate
@@ -261,7 +283,7 @@
         
         float distanceInMetres = [self distanceToLocation:favourite];
         
-        if (distanceInMetres < NOTIFICATION_DISTANCE){
+        if (self.notifyWhenClose && (distanceInMetres < self.notificationDistanceInMeters)){
             [self playAlertSound];
             [self postNotification];
         }
@@ -291,6 +313,18 @@
     }
     
     [self showMapAtLatitude:latitude longitude:longitude];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (self.notifyWhenClose){
+            self.trackingToggleButton.imageView.image = [UIImage imageNamed:@"Sensor colour"];
+            self.trackingToggleButton.imageView.backgroundColor = [UIColor blackColor];
+        } else {
+            self.trackingToggleButton.imageView.image = [UIImage imageNamed:@"Sensor bw"];
+            self.trackingToggleButton.imageView.backgroundColor = [UIColor clearColor];
+        }
+    });
+    
+
 }
 
 -(void)showMapAtLatitude:(float)latitude longitude:(float)longitude {
@@ -307,13 +341,20 @@
 }
 
 - (void)playAlertSound{
-   	NSURL *soundURL = [[NSBundle mainBundle] URLForResource:@"tap" withExtension:@"aif"];
-    SystemSoundID soundID;
-    AudioServicesCreateSystemSoundID((__bridge CFURLRef)soundURL, &soundID);
-    AudioServicesPlaySystemSound(soundID);
-    AudioServicesPlaySystemSound( kSystemSoundID_Vibrate );
-    AudioServicesDisposeSystemSoundID(soundID);
-    NSLog(@"Sound triggered");
+   	NSURL *soundURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ding" ofType:@"mp3"]];
+    
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
+    [self.audioPlayer prepareToPlay];
+    [self.audioPlayer play];
+
+}
+
+- (void)readUserDefaults {
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    self.notificationDistanceInMeters = [defaults floatForKey:KEY_NOTIFICATION_DISTANCE];
+    self.notifyWhenClose = [defaults boolForKey:KEY_NOTIFY_WHEN_CLOSE];
+
 }
 
 -(void)fetchUser{

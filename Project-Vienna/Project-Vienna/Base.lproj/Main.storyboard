@@ -295,8 +295,8 @@
                                     <outlet property="delegate" destination="8rJ-Kc-sve" id="FvT-wq-SLI"/>
                                 </connections>
                             </mapView>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Y3-dZ-Yau">
-                                <rect key="frame" x="544" y="33" width="36" height="37"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Y3-dZ-Yau" userLabel="goToUser">
+                                <rect key="frame" x="545" y="35" width="35" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="Mpp-J9-EZD"/>
                                     <constraint firstAttribute="width" constant="35" id="RrG-lp-xfz"/>
@@ -306,20 +306,38 @@
                                     <action selector="homeToUser:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="Ez1-Ps-2Bk"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Noq-lE-d88" userLabel="tracking">
+                                <rect key="frame" x="545" y="78" width="35" height="35"/>
+                                <state key="normal" image="Sensor bw"/>
+                                <connections>
+                                    <action selector="toggleNotificationTracking:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="33q-PH-Wo7"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="9Y3-dZ-Yau" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" constant="15" id="9Ea-ER-xFk"/>
+                            <constraint firstItem="Noq-lE-d88" firstAttribute="width" secondItem="9Y3-dZ-Yau" secondAttribute="width" id="1Ze-va-hcm"/>
+                            <constraint firstItem="Noq-lE-d88" firstAttribute="top" secondItem="9Y3-dZ-Yau" secondAttribute="bottom" constant="29" id="5wd-GW-wXv"/>
+                            <constraint firstItem="9Y3-dZ-Yau" firstAttribute="trailing" secondItem="QS5-Rx-YEW" secondAttribute="trailingMargin" id="9Ea-ER-xFk"/>
                             <constraint firstItem="vXa-I1-qMJ" firstAttribute="leading" secondItem="QS5-Rx-YEW" secondAttribute="leading" id="BCv-h5-ioe"/>
                             <constraint firstItem="vXa-I1-qMJ" firstAttribute="top" secondItem="QS5-Rx-YEW" secondAttribute="top" id="F44-IG-Wrf"/>
+                            <constraint firstItem="Noq-lE-d88" firstAttribute="top" secondItem="9Y3-dZ-Yau" secondAttribute="bottom" constant="8" id="a3N-KV-X4A"/>
+                            <constraint firstItem="Noq-lE-d88" firstAttribute="height" secondItem="9Y3-dZ-Yau" secondAttribute="height" id="dOk-ju-i7U"/>
+                            <constraint firstItem="Noq-lE-d88" firstAttribute="trailing" secondItem="9Y3-dZ-Yau" secondAttribute="trailing" id="dpg-ji-6gz"/>
                             <constraint firstItem="Djb-ko-YwX" firstAttribute="top" secondItem="vXa-I1-qMJ" secondAttribute="bottom" id="hDo-2V-n1m"/>
                             <constraint firstItem="9Y3-dZ-Yau" firstAttribute="top" secondItem="L7p-HK-0SC" secondAttribute="bottom" constant="15" id="jR0-ge-5HM"/>
                             <constraint firstAttribute="trailing" secondItem="vXa-I1-qMJ" secondAttribute="trailing" id="nVx-XZ-on3"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="5wd-GW-wXv"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="map" selectedImage="map.png" id="cPa-gy-q4n"/>
                     <connections>
                         <outlet property="mapView" destination="vXa-I1-qMJ" id="dEu-NW-RVV"/>
+                        <outlet property="trackingToggleButton" destination="Noq-lE-d88" id="JHg-nY-OAb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Nw-L8-lE0" sceneMemberID="firstResponder"/>
@@ -419,6 +437,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Sensor bw" width="50" height="50"/>
         <image name="buildings" width="32" height="32"/>
         <image name="clock" width="32" height="32"/>
         <image name="direction" width="32" height="32"/>

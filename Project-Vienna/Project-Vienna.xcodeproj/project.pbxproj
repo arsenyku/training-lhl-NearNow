@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1226541D1BB2ED4D00D354A9 /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226541C1BB2ED4D00D354A9 /* TabsViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		124C6D281BB44F0C00EDEC17 /* dogood4k_rtw.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 124C6D271BB44F0C00EDEC17 /* dogood4k_rtw.gpx */; settings = {ASSET_TAGS = (); }; };
+		124C6D2A1BB4AC2900EDEC17 /* ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 124C6D291BB4AC2900EDEC17 /* ding.mp3 */; settings = {ASSET_TAGS = (); }; };
+		124C6D2C1BB4ACE500EDEC17 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124C6D2B1BB4ACE500EDEC17 /* AVFoundation.framework */; };
 		12A262FF1BB20AFE0094B013 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 12A262FE1BB20AFE0094B013 /* CoreLocation.framework */; };
 		12A263061BB231F80094B013 /* LocationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 12A263051BB231F80094B013 /* LocationManager.m */; settings = {ASSET_TAGS = (); }; };
 		CA1AE4261BB207D40080D6AA /* City+CoreDataProperties.m in Sources */ = {isa = PBXBuildFile; fileRef = CA1AE4071BB207D40080D6AA /* City+CoreDataProperties.m */; settings = {ASSET_TAGS = (); }; };
@@ -38,6 +40,8 @@
 		1226541C1BB2ED4D00D354A9 /* TabsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsViewController.swift; sourceTree = "<group>"; };
 		122654251BB2F05600D354A9 /* Project-Vienna-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Project-Vienna-Bridging-Header.h"; sourceTree = "<group>"; };
 		124C6D271BB44F0C00EDEC17 /* dogood4k_rtw.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dogood4k_rtw.gpx; sourceTree = "<group>"; };
+		124C6D291BB4AC2900EDEC17 /* ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ding.mp3; sourceTree = "<group>"; };
+		124C6D2B1BB4ACE500EDEC17 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		12A262FE1BB20AFE0094B013 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		12A263031BB22B250094B013 /* ApiKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ApiKey.h; sourceTree = "<group>"; };
 		12A263041BB231F80094B013 /* LocationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocationManager.h; sourceTree = "<group>"; };
@@ -89,6 +93,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				124C6D2C1BB4ACE500EDEC17 /* AVFoundation.framework in Frameworks */,
 				12A262FF1BB20AFE0094B013 /* CoreLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -163,6 +168,7 @@
 		CA4C289D1BB08630001DE2EB = {
 			isa = PBXGroup;
 			children = (
+				124C6D2B1BB4ACE500EDEC17 /* AVFoundation.framework */,
 				124C6D271BB44F0C00EDEC17 /* dogood4k_rtw.gpx */,
 				CA4C28A81BB08630001DE2EB /* Project-Vienna */,
 				CA4C28A71BB08630001DE2EB /* Products */,
@@ -190,6 +196,7 @@
 				122654251BB2F05600D354A9 /* Project-Vienna-Bridging-Header.h */,
 				CA4C28B51BB08630001DE2EB /* Main.storyboard */,
 				CA4C28B81BB08630001DE2EB /* Assets.xcassets */,
+				124C6D291BB4AC2900EDEC17 /* ding.mp3 */,
 				CA4C28BA1BB08630001DE2EB /* LaunchScreen.storyboard */,
 				CA4C28BD1BB08630001DE2EB /* Info.plist */,
 				CA4C28A91BB08630001DE2EB /* Supporting Files */,
@@ -265,6 +272,7 @@
 			files = (
 				124C6D281BB44F0C00EDEC17 /* dogood4k_rtw.gpx in Resources */,
 				CA4C28BC1BB08630001DE2EB /* LaunchScreen.storyboard in Resources */,
+				124C6D2A1BB4AC2900EDEC17 /* ding.mp3 in Resources */,
 				CA4C28B91BB08630001DE2EB /* Assets.xcassets in Resources */,
 				CA4C28B71BB08630001DE2EB /* Main.storyboard in Resources */,
 			);
