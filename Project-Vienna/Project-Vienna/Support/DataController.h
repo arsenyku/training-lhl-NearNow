@@ -9,12 +9,17 @@
 #import "DataController.h"
 #import <Foundation/Foundation.h>
 #import "NSURLSession+DownloadFromAddress.h"
+#import <UIKit/UIKit.h>
 
 @import CoreData;
+@class Location;
 
 @interface DataController : NSObject
 
 @property (nonatomic, strong) NSManagedObjectContext *context;
 
--(void)initializeDataIfNeeded;
+- (void)loadImageFromLocation:(Location *)location completion:(void (^)(UIImage *image, NSError *error))completionHandler;
+
+- (void)initializeDataIfNeeded;
+
 @end

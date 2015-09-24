@@ -7,10 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "Location.h"
+#import "DataController.h"
+
+@class Location;
 
 @interface AttractionDetailViewController : UIViewController
 
 @property (nonatomic, strong) Location *location;
+@property (strong, nonatomic) DataController *dataController;
+
+-(void)setDataController:(DataController *)dataController;
 
 @end

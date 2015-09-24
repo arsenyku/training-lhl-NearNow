@@ -11,6 +11,7 @@
 #define PLACE_DETAILS_API @"https://maps.googleapis.com/maps/api/place/details/json?placeid=%@&key=%@"
 #define NEARBY_API @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%@,%@&radius=%@&types=%@&key=%@"
 #define RADAR_API @"https://maps.googleapis.com/maps/api/place/radarsearch/json?location=%@,%@&radius=%@&types=%@&key=%@"
+#define PLACE_PHOTOS_API @"https://maps.googleapis.com/maps/api/place/photo?maxheight=%d&photoreference=%@&key=%@"
 
 #define NEW_YORK_LATITUDE @"40.7127837"
 #define NEW_YORK_LONGITUDE @"-74.0059413"
@@ -31,8 +32,13 @@
 
 #define ZOOM_IN_MAP_AREA 2100
 
+#define MAX_HEIGHT 200
+
 #define ATTRIBUTE_PLACE_ID @"placeId"
 #define ATTRIBUTE_LATITUTE @"latitude"
 #define ATTRIBUTE_LONGITUDE @"longitude"
 #define ATTRIBUTE_NAME @"name"
-#define ATTRIBUTE_TYPES @"types"
+#define ATTRIBUTE_TYPES @"type"
+#define ATTRIBUTE_ICON_URL @"iconURL"
+#define ATTRIBUTE_WEBSITE @"website"
+#define ATTRIBUTE_PHOTO_REFERENCE @"photoReference"
