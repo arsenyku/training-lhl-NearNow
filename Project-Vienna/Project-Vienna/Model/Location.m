@@ -31,7 +31,7 @@
 
 -(NSString*)subtitle{
     return [NSString stringWithFormat:@"Type: %@, Rating:%.1f",
-            self.types, self.rating];
+            self.type, self.rating];
 }
 
 
