@@ -321,11 +321,11 @@
     
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.notifyWhenClose){
-            self.trackingToggleButton.imageView.image = [UIImage imageNamed:@"Sensor colour"];
-            self.trackingToggleButton.imageView.backgroundColor = [UIColor blackColor];
+            [self.trackingToggleButton setBackgroundColor:[UIColor blackColor]];
+            [self.trackingToggleButton setImage:[UIImage imageNamed:@"Sensor colour"] forState:UIControlStateNormal];
         } else {
-            self.trackingToggleButton.imageView.image = [UIImage imageNamed:@"Sensor bw"];
-            self.trackingToggleButton.imageView.backgroundColor = [UIColor clearColor];
+            [self.trackingToggleButton setBackgroundColor:[UIColor clearColor]];
+            [self.trackingToggleButton setImage:[UIImage imageNamed:@"Sensor bw"] forState:UIControlStateNormal];
         }
     });
     

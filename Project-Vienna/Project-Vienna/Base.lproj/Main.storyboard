@@ -308,7 +308,6 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Noq-lE-d88" userLabel="tracking">
                                 <rect key="frame" x="545" y="78" width="35" height="35"/>
-                                <state key="normal" image="Sensor bw"/>
                                 <connections>
                                     <action selector="toggleNotificationTracking:" destination="8rJ-Kc-sve" eventType="touchUpInside" id="33q-PH-Wo7"/>
                                 </connections>
@@ -437,7 +436,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Sensor bw" width="50" height="50"/>
         <image name="buildings" width="32" height="32"/>
         <image name="clock" width="32" height="32"/>
         <image name="direction" width="32" height="32"/>
