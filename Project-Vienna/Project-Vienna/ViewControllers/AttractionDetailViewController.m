@@ -15,14 +15,13 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *attractionNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *addressInformationLabel;
-@property (weak, nonatomic) IBOutlet UILabel *localInformationLabel;
 @property (weak, nonatomic) IBOutlet UILabel *openingHoursLabel;
-@property (weak, nonatomic) IBOutlet UILabel *phoneNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *websiteAddressLabel;
 @property (weak, nonatomic) IBOutlet UILabel *isOpenLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *phoneButton;
+@property (weak, nonatomic) IBOutlet UIButton *websiteAddressButton;
 @property (weak, nonatomic) IBOutlet UIButton *backButton;
-@property (weak, nonatomic) IBOutlet UIButton *directionsButton;
 
 @end
 
@@ -48,17 +47,24 @@
     
     self.attractionNameLabel.text = self.location.name;
     self.addressInformationLabel.text = self.location.address;
-    self.phoneNumberLabel.text = self.location.phone;
     
     [self formatIsOpenLabel];
     [self formatOpeningHoursLabel];
     
     if (self.location.website != NULL) {
-        self.websiteAddressLabel.text = self.location.website;
+        [self.websiteAddressButton setTitle:self.location.website forState:UIControlStateNormal];
     }
     else {
-        self.websiteAddressLabel.text = @"Not available";
+        [self.websiteAddressButton setTitle:@"Not available" forState:UIControlStateNormal];
     }
+    
+    if (self.location.phone != NULL) {
+        [self.phoneButton setTitle:self.location.phone forState:UIControlStateNormal];
+    }
+    else {
+        [self.phoneButton setTitle:@"Not available" forState:UIControlStateNormal];
+    }
+    
 }
 
 - (void)formatIsOpenLabel {
@@ -109,7 +115,17 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
-- (IBAction)directionsPressedButton:(id)sender {
+- (IBAction)phoneButtonPressed:(id)sender {
+    NSString *phone = self.location.phone;
+    NSString *cleanNumber = [[phone componentsSeparatedByCharactersInSet:[[NSCharacterSet characterSetWithCharactersInString:@"0123456789-+()"] invertedSet]] componentsJoinedByString:@""];
+    
+    NSString *phoneNumber = [NSString stringWithFormat:@"tel://%@", cleanNumber];
+    
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phoneNumber]];
+}
+
+- (IBAction)websiteAddresButtonPressed:(id)sender {
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.location.website]];
 }
 
 @end
