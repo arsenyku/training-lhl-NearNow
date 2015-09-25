@@ -52,3 +52,6 @@
 // In metres
 #define CITY_BOUNDS_THRESHOLD 55000
 
+#define WALKING_ROUTE_MODE @"walking"
+#define DRIVING_ROUTE_MODE @"driving"
+

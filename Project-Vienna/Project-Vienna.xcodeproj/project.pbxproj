@@ -107,6 +107,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12276CD71BB5564000F4EE3C /* Framework */ = {
+			isa = PBXGroup;
+			children = (
+				124C6D2B1BB4ACE500EDEC17 /* AVFoundation.framework */,
+				12A262FE1BB20AFE0094B013 /* CoreLocation.framework */,
+			);
+			name = Framework;
+			sourceTree = "<group>";
+		};
 		CA1AE4051BB207D40080D6AA /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,11 +187,10 @@
 		CA4C289D1BB08630001DE2EB = {
 			isa = PBXGroup;
 			children = (
-				124C6D2B1BB4ACE500EDEC17 /* AVFoundation.framework */,
 				124C6D271BB44F0C00EDEC17 /* dogood4k_rtw.gpx */,
 				CA4C28A81BB08630001DE2EB /* Project-Vienna */,
 				CA4C28A71BB08630001DE2EB /* Products */,
-				12A262FE1BB20AFE0094B013 /* CoreLocation.framework */,
+				12276CD71BB5564000F4EE3C /* Framework */,
 			);
 			sourceTree = "<group>";
 		};

@@ -27,6 +27,7 @@
 -(void)loadRouteFromLatitude:(float)fromLatitude
                fromLongitude:(float)fromLongitude
                   toLocation:(Location *)toLocation
+                        mode:(NSString*)mode
                   completion:(void (^)(Route *, NSError *))completionHandler;
 
 - (void)initializeDataIfNeeded;

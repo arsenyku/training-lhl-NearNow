@@ -10,6 +10,7 @@
 #import "RouteSegment.h"
 
 @interface Route : NSObject
+@property (nonatomic) NSString *durationText;
 - (NSArray*)segments;
 - (void)addSegment:(RouteSegment*)segment;
 @end

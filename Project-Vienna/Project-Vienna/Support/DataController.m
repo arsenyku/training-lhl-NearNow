@@ -109,12 +109,13 @@
 -(void)loadRouteFromLatitude:(float)fromLatitude
                fromLongitude:(float)fromLongitude
                   toLocation:(Location *)toLocation
+                        mode:(NSString*)mode
                   completion:(void (^)(Route *, NSError *))completionHandler{
     
     NSString *dataAddress = [NSString stringWithFormat:PLACE_ROUTE_API,
                              [NSString stringWithFormat:@"%.15f", fromLatitude],
                              [NSString stringWithFormat:@"%.15f", fromLongitude],
-                             toLocation.placeId, @"walking", API_KEY];
+                             toLocation.placeId, mode, API_KEY];
     NSLog(@"dataAddress %@", dataAddress);
     
     [NSURLSession downloadFromAddress:dataAddress completion:^(NSData *data, NSURLResponse *response, NSError *error) {
@@ -137,9 +138,13 @@
             return;
         }
         
-        NSDictionary *steps = jsonData[ @"routes" ][0][@"legs"][0][@"steps"];
+        NSDictionary *legs = jsonData[ @"routes" ][0][@"legs"][0];
+        NSDictionary *steps = legs[@"steps"];
         
         Route *route = [[Route alloc] init];
+        
+        route.durationText = legs[ @"duration" ][ @"text" ];
+        
         for (NSDictionary *step in steps) {
             RouteSegment *routeSegment = [[RouteSegment alloc] init];
             routeSegment.startLatitude = step[@"start_location"][@"lat"] ;

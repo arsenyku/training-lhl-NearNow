@@ -375,10 +375,16 @@
 }
 
 - (void)showRouteToLocation:(Location*)location{
+
+    NSString *travelMode = DRIVING_ROUTE_MODE;
+    if ([self distanceToLocation:location] < 2500)
+        travelMode = WALKING_ROUTE_MODE;
     
     [self.dataController loadRouteFromLatitude:self.currentLocation.coordinate.latitude
                                  fromLongitude:self.currentLocation.coordinate.longitude
-                                    toLocation:location completion:^(Route *route, NSError *error) {
+                                    toLocation:location
+                                          mode:travelMode
+                                    completion:^(Route *route, NSError *error) {
                                         [self routeOverlay:route toLocation:location];
                                     }];
 }
@@ -387,17 +393,18 @@
     NSLog(@"Route: %@", route.segments);
     
     int segmentsCount = (int)[route.segments count];
-    CLLocationCoordinate2D pointsToUse[segmentsCount+1];
+    CLLocationCoordinate2D pointsToUse[segmentsCount+2];
     
     for(int i=0; i<segmentsCount; i++) {
         RouteSegment *segment = route.segments[i];
         pointsToUse[i] = CLLocationCoordinate2DMake([segment.startLatitude floatValue], [segment.startLongitude floatValue]);
     }
-//    RouteSegment *segment = [route.segments lastObject];
-//    pointsToUse[segmentsCount] = CLLocationCoordinate2DMake([segment.endLatitude floatValue], [segment.endLongitude floatValue]);
-    pointsToUse[segmentsCount] = CLLocationCoordinate2DMake(location.latitude, location.longitude);
+
+    RouteSegment *segment = [route.segments lastObject];
+    pointsToUse[segmentsCount] = CLLocationCoordinate2DMake([segment.endLatitude floatValue], [segment.endLongitude floatValue]);
+    pointsToUse[segmentsCount+1] = CLLocationCoordinate2DMake(location.latitude, location.longitude);
     
-    self.routeLine = [MKPolyline polylineWithCoordinates:pointsToUse count:segmentsCount+1];
+    self.routeLine = [MKPolyline polylineWithCoordinates:pointsToUse count:segmentsCount+2];
 
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.mapView addOverlay:self.routeLine];
