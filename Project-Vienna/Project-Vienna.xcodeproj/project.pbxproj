@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1226541D1BB2ED4D00D354A9 /* TabsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1226541C1BB2ED4D00D354A9 /* TabsViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		12276CD31BB5350B00F4EE3C /* Route.m in Sources */ = {isa = PBXBuildFile; fileRef = 12276CD21BB5350B00F4EE3C /* Route.m */; settings = {ASSET_TAGS = (); }; };
+		12276CD61BB5352900F4EE3C /* RouteSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 12276CD51BB5352900F4EE3C /* RouteSegment.m */; settings = {ASSET_TAGS = (); }; };
 		124C6D281BB44F0C00EDEC17 /* dogood4k_rtw.gpx in Resources */ = {isa = PBXBuildFile; fileRef = 124C6D271BB44F0C00EDEC17 /* dogood4k_rtw.gpx */; settings = {ASSET_TAGS = (); }; };
 		124C6D2A1BB4AC2900EDEC17 /* ding.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 124C6D291BB4AC2900EDEC17 /* ding.mp3 */; settings = {ASSET_TAGS = (); }; };
 		124C6D2C1BB4ACE500EDEC17 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 124C6D2B1BB4ACE500EDEC17 /* AVFoundation.framework */; };
@@ -39,6 +41,10 @@
 /* Begin PBXFileReference section */
 		1226541C1BB2ED4D00D354A9 /* TabsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabsViewController.swift; sourceTree = "<group>"; };
 		122654251BB2F05600D354A9 /* Project-Vienna-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Project-Vienna-Bridging-Header.h"; sourceTree = "<group>"; };
+		12276CD11BB5350B00F4EE3C /* Route.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Route.h; sourceTree = "<group>"; };
+		12276CD21BB5350B00F4EE3C /* Route.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Route.m; sourceTree = "<group>"; };
+		12276CD41BB5352900F4EE3C /* RouteSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RouteSegment.h; sourceTree = "<group>"; };
+		12276CD51BB5352900F4EE3C /* RouteSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RouteSegment.m; sourceTree = "<group>"; };
 		124C6D271BB44F0C00EDEC17 /* dogood4k_rtw.gpx */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = dogood4k_rtw.gpx; sourceTree = "<group>"; };
 		124C6D291BB4AC2900EDEC17 /* ding.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = ding.mp3; sourceTree = "<group>"; };
 		124C6D2B1BB4ACE500EDEC17 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -132,6 +138,10 @@
 				12A263051BB231F80094B013 /* LocationManager.m */,
 				CA1AE4181BB207D40080D6AA /* NSURLSession+DownloadFromAddress.h */,
 				CA1AE4191BB207D40080D6AA /* NSURLSession+DownloadFromAddress.m */,
+				12276CD11BB5350B00F4EE3C /* Route.h */,
+				12276CD21BB5350B00F4EE3C /* Route.m */,
+				12276CD41BB5352900F4EE3C /* RouteSegment.h */,
+				12276CD51BB5352900F4EE3C /* RouteSegment.m */,
 			);
 			path = Support;
 			sourceTree = "<group>";
@@ -244,6 +254,11 @@
 				TargetAttributes = {
 					CA4C28A51BB08630001DE2EB = {
 						CreatedOnToolsVersion = 7.0;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -286,11 +301,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA1AE4301BB207D40080D6AA /* AttractionDetailViewController.m in Sources */,
+				12276CD61BB5352900F4EE3C /* RouteSegment.m in Sources */,
 				CA1AE4361BB24B560080D6AA /* CityTableViewCell.m in Sources */,
 				CA1AE42D1BB207D40080D6AA /* DataController.m in Sources */,
 				CA1AE4331BB207D40080D6AA /* MapAttractionsViewController.m in Sources */,
 				CA1AE4261BB207D40080D6AA /* City+CoreDataProperties.m in Sources */,
 				CA4C28AE1BB08630001DE2EB /* AppDelegate.m in Sources */,
+				12276CD31BB5350B00F4EE3C /* Route.m in Sources */,
 				CA1AE42C1BB207D40080D6AA /* User.m in Sources */,
 				CA853F981BB48EDE00BE84CD /* SettingsViewController.m in Sources */,
 				CA1AE42F1BB207D40080D6AA /* AttractionTableViewCell.m in Sources */,

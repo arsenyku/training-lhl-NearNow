@@ -12,6 +12,8 @@
 #import "Location.h"
 #import "City.h"
 #import "User.h"
+#import "Route.h"
+#import "RouteSegment.h"
 
 @interface DataController ()
 
@@ -102,6 +104,57 @@
 
 -(NSArray *)cities{
     return [self fetchEntitiesNamed:CITY_ENTITY_NAME];
+}
+
+-(void)loadRouteFromLatitude:(float)fromLatitude
+               fromLongitude:(float)fromLongitude
+                  toLocation:(Location *)toLocation
+                  completion:(void (^)(Route *, NSError *))completionHandler{
+    
+    NSString *dataAddress = [NSString stringWithFormat:PLACE_ROUTE_API,
+                             [NSString stringWithFormat:@"%.15f", fromLatitude],
+                             [NSString stringWithFormat:@"%.15f", fromLongitude],
+                             toLocation.placeId, @"walking", API_KEY];
+    NSLog(@"dataAddress %@", dataAddress);
+    
+    [NSURLSession downloadFromAddress:dataAddress completion:^(NSData *data, NSURLResponse *response, NSError *error) {
+        
+        if (error){
+            NSLog(@"Route Endpoint Download Error: %@", error);
+            return;
+        }
+        
+        id jsonData = [self jsonFromData:data];
+        
+        BOOL validData = [@"OK" isEqualToString: jsonData[ @"geocoded_waypoints" ][0][ @"geocoder_status" ] ];
+       	validData = validData & [@"OK" isEqualToString: jsonData[ @"geocoded_waypoints" ][1][ @"geocoder_status" ] ];
+        
+        if (!validData){
+
+            if (completionHandler)
+                completionHandler(nil, error);
+
+            return;
+        }
+        
+        NSDictionary *steps = jsonData[ @"routes" ][0][@"legs"][0][@"steps"];
+        
+        Route *route = [[Route alloc] init];
+        for (NSDictionary *step in steps) {
+            RouteSegment *routeSegment = [[RouteSegment alloc] init];
+            routeSegment.startLatitude = step[@"start_location"][@"lat"] ;
+            routeSegment.startLongitude = step[@"start_location"][@"lng"] ;
+            routeSegment.endLatitude = step[@"end_location"][@"lat"] ;
+            routeSegment.endLongitude = step[@"end_location"][@"lng"] ;
+            
+            [route addSegment:routeSegment];
+        }
+        
+        if (completionHandler)
+            completionHandler(route, error);
+    }];
+     
+
 }
 
 -(void)createUser{

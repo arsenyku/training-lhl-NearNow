@@ -13,6 +13,8 @@
 
 @import CoreData;
 @class Location;
+@class User;
+@class Route;
 
 @interface DataController : NSObject
 
@@ -21,6 +23,11 @@
 - (NSArray*)cities;
 
 - (void)loadImageFromLocation:(Location *)location completion:(void (^)(UIImage *image, NSError *error))completionHandler;
+
+-(void)loadRouteFromLatitude:(float)fromLatitude
+               fromLongitude:(float)fromLongitude
+                  toLocation:(Location *)toLocation
+                  completion:(void (^)(Route *, NSError *))completionHandler;
 
 - (void)initializeDataIfNeeded;
 

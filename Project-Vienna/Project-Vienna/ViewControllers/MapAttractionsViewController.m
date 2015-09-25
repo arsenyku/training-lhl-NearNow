@@ -11,12 +11,16 @@
 #import "LocationManager.h"
 #import "User.h"
 #import "Location.h"
+#import "Route.h"
 #import <MapKit/MapKit.h>
 #import <AVFoundation/AVFoundation.h>
 
 @interface MapAttractionsViewController () <MKMapViewDelegate>
 
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+
+@property (nonatomic, retain) MKPolyline *routeLine;
+
 @property (weak, nonatomic) IBOutlet UIButton *trackingToggleButton;
 
 @property (strong, nonatomic) DataController *dataController;
@@ -185,6 +189,8 @@
         annotationView.annotation = annotation;
     }
     
+    annotationView.alpha = 0.75f;
+    
     annotationView.canShowCallout = YES;
 
     UIButton* accessoryButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
@@ -206,7 +212,30 @@
     Location *location = view.annotation;
     location.currentDistanceFromUser = [self distanceToLocation:location];
     self.lastTappedLocation = location;
+    
+    [self showRouteToLocation:location];
 
+}
+
+-(void)mapView:(MKMapView *)mapView didDeselectAnnotationView:(MKAnnotationView *)view{
+    [self.mapView removeOverlay:self.routeLine];
+    self.routeLine = nil;
+}
+
+-(MKOverlayRenderer *)mapView:(MKMapView *)mapView rendererForOverlay:(id<MKOverlay>)overlay {
+    if ([overlay isKindOfClass:MKPolyline.class]) {
+        MKPolylineRenderer *lineView = [[MKPolylineRenderer alloc] initWithOverlay:overlay];
+        lineView.strokeColor = [UIColor colorWithRed:46.0f/255.0f
+                                               green:165.0f/255.0f
+                                                blue:249.0f/255.0f
+                                               alpha:1.0];
+        
+        lineView.lineWidth = 1.5f;
+        
+        return lineView;
+    }
+    
+    return nil;
 }
 
 #pragma mark - private
@@ -345,10 +374,46 @@
     
 }
 
+- (void)showRouteToLocation:(Location*)location{
+    
+    [self.dataController loadRouteFromLatitude:self.currentLocation.coordinate.latitude
+                                 fromLongitude:self.currentLocation.coordinate.longitude
+                                    toLocation:location completion:^(Route *route, NSError *error) {
+                                        [self routeOverlay:route toLocation:location];
+                                    }];
+}
+
+- (void)routeOverlay:(Route*)route toLocation:(Location*)location{
+    NSLog(@"Route: %@", route.segments);
+    
+    int segmentsCount = (int)[route.segments count];
+    CLLocationCoordinate2D pointsToUse[segmentsCount+1];
+    
+    for(int i=0; i<segmentsCount; i++) {
+        RouteSegment *segment = route.segments[i];
+        pointsToUse[i] = CLLocationCoordinate2DMake([segment.startLatitude floatValue], [segment.startLongitude floatValue]);
+    }
+//    RouteSegment *segment = [route.segments lastObject];
+//    pointsToUse[segmentsCount] = CLLocationCoordinate2DMake([segment.endLatitude floatValue], [segment.endLongitude floatValue]);
+    pointsToUse[segmentsCount] = CLLocationCoordinate2DMake(location.latitude, location.longitude);
+    
+    self.routeLine = [MKPolyline polylineWithCoordinates:pointsToUse count:segmentsCount+1];
+
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.mapView addOverlay:self.routeLine];
+    });
+    
+}
+
 - (void)playAlertSound{
    	NSURL *soundURL = [NSURL fileURLWithPath:[[NSBundle mainBundle] pathForResource:@"ding" ofType:@"mp3"]];
     
-    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:nil];
+    NSError *error = nil;
+    self.audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
+    
+    if (error)
+        NSLog(@"Audio Player init error: %@", error);
+    
     [self.audioPlayer prepareToPlay];
     [self.audioPlayer play];
 
