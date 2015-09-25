@@ -209,7 +209,12 @@
 }
 
 -(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view{
+
+    if (view.annotation && [view.annotation isKindOfClass:[MKUserLocation class]])
+        return;
+
     Location *location = view.annotation;
+
     location.currentDistanceFromUser = [self distanceToLocation:location];
     self.lastTappedLocation = location;
     
