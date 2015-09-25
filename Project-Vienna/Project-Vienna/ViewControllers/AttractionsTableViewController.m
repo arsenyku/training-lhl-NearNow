@@ -47,6 +47,11 @@
     self.onlyFavorites = NO;
 }
 
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [self.tableView reloadData];
+}
+
 #pragma mark - Segue method
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(UIButton *)sender {
