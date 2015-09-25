@@ -30,6 +30,7 @@
     
     if (valueSaved == 0.0f) {
         self.distanceSlider.value = 1.0f;
+        [self updateDistanceLabel];
     }
     else {
         self.distanceSlider.value = valueSaved;
