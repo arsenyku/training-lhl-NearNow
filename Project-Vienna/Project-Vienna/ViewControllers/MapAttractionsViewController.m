@@ -91,7 +91,9 @@
         [self.user addLocationsObject:self.lastTappedLocation];
     }
     [self.dataController saveContext];
-    [self updateMap];
+
+	[self showMapAtLatitude:self.lastTappedLocation.coordinate.latitude
+                  longitude:self.lastTappedLocation.coordinate.longitude];
 }
 
 - (IBAction)toggleNotificationTracking:(UIButton *)sender {
