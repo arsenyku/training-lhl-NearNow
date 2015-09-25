@@ -390,6 +390,11 @@
                                     toLocation:location
                                           mode:travelMode
                                     completion:^(Route *route, NSError *error) {
+                                        if (route == nil) {
+                                            NSLog(@"No route received");
+                                            return;
+                                        }
+                                        
                                         [self routeOverlay:route toLocation:location];
                                     }];
 }
