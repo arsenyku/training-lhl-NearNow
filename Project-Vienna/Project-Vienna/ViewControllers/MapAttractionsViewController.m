@@ -27,6 +27,7 @@
 
 @property (strong, nonatomic) AVAudioPlayer *audioPlayer;
 
+@property (strong, nonatomic) NSDate *lastPostDate;
 
 @property (strong, nonatomic) Location *lastTappedLocation;
 
@@ -208,12 +209,6 @@
 
 }
 
-//<wpt lon="-123.119550" lat="49.283420">
-//<ele>61.900000</ele>
-//<name>Track 001 000</name>
-//<sym>Flag, Blue</sym>
-//</wpt>
-
 #pragma mark - private
 
 -(void)selectedCity:(City *)city{
@@ -284,10 +279,18 @@
     for (Location* favourite in self.user.locations) {
         
         float distanceInMetres = [self distanceToLocation:favourite];
+        int const MinSecondsBetweenAlerts = 30;
         
         if (self.notifyWhenClose && (distanceInMetres < self.notificationDistanceInMeters)){
+            double elapsed = [self secondsSinceDate:self.lastPostDate];
+            if (elapsed < MinSecondsBetweenAlerts)
+                return;
+            
             [self playAlertSound];
             [self postNotification];
+
+            self.lastPostDate = [NSDate date];
+
         }
     }
 }
@@ -318,11 +321,11 @@
     
     dispatch_async(dispatch_get_main_queue(), ^{
         if (self.notifyWhenClose){
-            self.trackingToggleButton.imageView.image = [UIImage imageNamed:@"Sensor colour"];
-            self.trackingToggleButton.imageView.backgroundColor = [UIColor blackColor];
+            [self.trackingToggleButton setBackgroundColor:[UIColor blackColor]];
+            [self.trackingToggleButton setImage:[UIImage imageNamed:@"Sensor colour"] forState:UIControlStateNormal];
         } else {
-            self.trackingToggleButton.imageView.image = [UIImage imageNamed:@"Sensor bw"];
-            self.trackingToggleButton.imageView.backgroundColor = [UIColor clearColor];
+            [self.trackingToggleButton setBackgroundColor:[UIColor clearColor]];
+            [self.trackingToggleButton setImage:[UIImage imageNamed:@"Sensor bw"] forState:UIControlStateNormal];
         }
     });
     
@@ -379,14 +382,21 @@
     }
 }
 
-- (void)postNotification{
+- (double)secondsSinceDate:(NSDate*)date{
 
+    NSTimeInterval elapsed = [[NSDate date] timeIntervalSinceDate:date];
+    return elapsed;
+
+}
+- (void)postNotification{
     UILocalNotification *post = [[UILocalNotification alloc] init];
-    post.alertTitle = @"Title";
-    post.alertBody = @"Body";
+    post.alertTitle = @"Project-Vienna";
+    post.alertBody = @"You are near a location of interest.";
     post.alertAction = @"Action";
     
     [[UIApplication sharedApplication] presentLocalNotificationNow:post];
+    
+    self.lastPostDate = [NSDate date];
     
 }
 
