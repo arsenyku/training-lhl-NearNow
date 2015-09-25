@@ -199,7 +199,7 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HhH-YK-LgC">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="HhH-YK-LgC">
                                 <rect key="frame" x="72" y="550" width="508" height="28"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="13"/>
                                 <state key="normal" title="Button">
@@ -234,6 +234,8 @@
                             <constraint firstItem="Y8b-tg-PR1" firstAttribute="leading" secondItem="60z-W1-JXT" secondAttribute="leading" constant="72" id="P9G-WN-VmA"/>
                             <constraint firstItem="cqv-IZ-Z1G" firstAttribute="top" secondItem="cvo-A1-K4d" secondAttribute="bottom" constant="50" id="R2W-Lu-HqX"/>
                             <constraint firstItem="ixS-PX-aWB" firstAttribute="leading" secondItem="cqv-IZ-Z1G" secondAttribute="trailing" constant="20" id="RGr-I1-kuA"/>
+                            <constraint firstItem="HhH-YK-LgC" firstAttribute="centerY" secondItem="Hne-4a-vRh" secondAttribute="centerY" id="ReC-Rf-OEt"/>
+                            <constraint firstItem="HhH-YK-LgC" firstAttribute="leading" secondItem="60z-W1-JXT" secondAttribute="leading" constant="72" id="SCM-ge-zd6"/>
                             <constraint firstAttribute="trailing" secondItem="Y8b-tg-PR1" secondAttribute="trailing" constant="20" id="SIn-2U-jPC"/>
                             <constraint firstItem="ixS-PX-aWB" firstAttribute="centerY" secondItem="cqv-IZ-Z1G" secondAttribute="centerY" id="bpk-To-5S2"/>
                             <constraint firstItem="GDP-o2-iex" firstAttribute="leading" secondItem="lLg-vS-Fol" secondAttribute="trailing" constant="10" id="cCh-l1-4Rg"/>
@@ -241,9 +243,7 @@
                             <constraint firstItem="ehz-8v-yRs" firstAttribute="top" secondItem="60z-W1-JXT" secondAttribute="top" constant="25" id="dGZ-EP-lgg"/>
                             <constraint firstItem="Y8b-tg-PR1" firstAttribute="centerY" secondItem="Lpy-Og-a1S" secondAttribute="centerY" id="e9Z-r3-t48"/>
                             <constraint firstItem="ToV-Jc-Da2" firstAttribute="leading" secondItem="60z-W1-JXT" secondAttribute="leading" id="eG2-MI-hgf"/>
-                            <constraint firstItem="HhH-YK-LgC" firstAttribute="leading" secondItem="Hne-4a-vRh" secondAttribute="trailing" constant="20" id="ev7-cQ-msD"/>
                             <constraint firstItem="cvo-A1-K4d" firstAttribute="top" secondItem="Lpy-Og-a1S" secondAttribute="bottom" constant="50" id="fL1-Ps-b9f"/>
-                            <constraint firstItem="HhH-YK-LgC" firstAttribute="centerY" secondItem="Hne-4a-vRh" secondAttribute="centerY" id="gQR-v8-REj"/>
                             <constraint firstItem="vIG-vx-O5t" firstAttribute="leading" secondItem="60z-W1-JXT" secondAttribute="leading" constant="20" id="iaf-K7-Cmn"/>
                             <constraint firstAttribute="trailing" secondItem="ixS-PX-aWB" secondAttribute="trailing" constant="20" id="khh-yk-vab"/>
                             <constraint firstItem="ehz-8v-yRs" firstAttribute="leading" secondItem="60z-W1-JXT" secondAttribute="leading" constant="10" id="ldV-4y-g9X"/>
