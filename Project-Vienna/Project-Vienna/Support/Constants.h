@@ -12,6 +12,7 @@
 #define NEARBY_API @"https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=%@,%@&radius=%@&types=%@&key=%@"
 #define RADAR_API @"https://maps.googleapis.com/maps/api/place/radarsearch/json?location=%@,%@&radius=%@&types=%@&key=%@"
 #define PLACE_PHOTOS_API @"https://maps.googleapis.com/maps/api/place/photo?maxheight=%d&photoreference=%@&key=%@"
+#define PLACE_ROUTE_API @"https://maps.googleapis.com/maps/api/directions/json?origin=%@,%@&destination=place_id:%@&mode=%@&key=%@"
 
 #define NEW_YORK_LATITUDE @"40.7127837"
 #define NEW_YORK_LONGITUDE @"-74.0059413"
