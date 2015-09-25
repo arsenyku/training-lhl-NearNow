@@ -35,6 +35,10 @@
     [self loadInformation];
 }
 
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations {
+    return UIInterfaceOrientationMaskPortrait;
+}
+
 #pragma mark - Helper methods
 
 - (void)loadInformation {
