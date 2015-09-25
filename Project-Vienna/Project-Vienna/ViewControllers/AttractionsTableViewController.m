@@ -17,12 +17,11 @@
 @interface AttractionsTableViewController () <UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *locationSegmentedControl;
 
 @property (strong, nonatomic) NSMutableArray *filteredLocations;
 @property (strong, nonatomic) NSArray *locations;
 @property (strong, nonatomic) User *user;
-
-@property (nonatomic) BOOL onlyFavorites;
 
 @end
 
@@ -44,7 +43,6 @@
     self.filteredLocations = [self.locations mutableCopy];
     
     self.searchBar.delegate = self;
-    self.onlyFavorites = NO;
 }
 
 - (void)viewWillAppear:(BOOL)animated{
@@ -163,22 +161,15 @@
 
 #pragma mark - IBAction methods
 
-- (IBAction)favoritesButtonPressed:(id)sender {
+- (IBAction)segmentedControlPressed:(id)sender {
     
-    if (self.onlyFavorites) {
-        self.onlyFavorites = NO;
-    }
-    else {
-        self.onlyFavorites = YES;
-    }
-    
-    if (self.onlyFavorites) {
+    if (self.locationSegmentedControl.selectedSegmentIndex == 1) {
         [self showFavoritesLocationsFromCurrentCity];
     }
     else {
         self.filteredLocations = [self.locations mutableCopy];
     }
-
+    
     [self.tableView reloadData];
 }
 
